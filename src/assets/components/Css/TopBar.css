@@ -1,0 +1,67 @@
+body {
+    font-family: 'Roboto', sans-serif;
+  
+  }
+  
+  .contTotTopBar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #1b2c3f;
+    position: fixed;
+    z-index: 10;
+  }
+  
+  .textTopBar{
+    color: aliceblue;
+    align-items: center;
+  }
+
+.contTotTopBar {
+  display: flex;
+}
+
+.topBarMobile {
+  display: none;
+}
+  
+  .textTopBar:hover{
+    color:#ffc999;
+    cursor: pointer;
+    align-items: center;
+  }
+  
+  .imgLogoTopBar{
+    width: 100px;
+    height: 100px;
+    color:  solid aliceblue;
+  }
+  
+  .contSxTopBar{
+    display: flex;
+    align-items: center;
+  }
+  
+  .btnTopBar{
+    color:  #ffc999;
+    font-size: 20px;
+    padding: 2px 10px 4px 10px;
+    border: 0.1px solid;
+    border-color: #ffc999;
+    text-decoration: none;
+    background-color: transparent;
+  }
+  
+  .btnTopBar:hover{
+    background-image: linear-gradient(to bottom, #ffc999, #ffebdb);
+    color: #f58625;
+  }
+
+  @media screen and (max-width: 767px) {
+  .topBarMobile {
+    display: flex;;
+  }
+  .contTotTopBar {
+    display: none;
+  }
+}
