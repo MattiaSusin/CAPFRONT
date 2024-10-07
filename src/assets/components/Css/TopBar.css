@@ -1,6 +1,5 @@
 body {
     font-family: 'Roboto', sans-serif;
-  
   }
   
   .contTotTopBar{
@@ -63,5 +62,13 @@ body {
   }
   .contTotTopBar {
     display: none;
+  }
+  .topBarMobile{
+    background-color: #1b2c3f;
+    display: flex;
+    justify-content: center;
+  }
+  .btnMobile{
+    
   }
 }

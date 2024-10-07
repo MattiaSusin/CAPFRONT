@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 
 const TopBarMobile = () => {
-    const [menuOpen, setMenuOpen] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false) 
 
     console.log("menuOpen", menuOpen)
 
@@ -16,13 +16,13 @@ const TopBarMobile = () => {
 
     return(
       <Container fluid className="topBarMobile d-flex justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center col-6 btnMobile">
           <button className="btnTopBar" onClick={toggleMenu}>
             {menuOpen ? <FaTimes/> : <FaBars/>}
             </button>
         </div>
         {menuOpen && (
-          <div className="d-flex flex-column align-items-start mt-3">
+          <div className="d-flex flex-column align-items-start mt-3 col-12">
             <NavLink to="/" className="nav-link">
               <p className="me-4 textTopBar pt-3">
             HOME</p>

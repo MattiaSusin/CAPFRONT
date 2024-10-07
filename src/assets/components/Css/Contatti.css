@@ -1,0 +1,91 @@
+.contFormPrenotazione{
+    background-color: #1b2c3f;
+}
+
+.indirizzoContatti{
+    color: aliceblue;
+}
+
+.emailTelContatti{
+    color: aliceblue;
+}
+
+.orariContatti{
+    color: aliceblue;
+}
+
+.contFormContatti{
+    /* border: 2px solid white; */
+    width: 49vh;
+    height: 50vh;
+}
+
+.cont1FormContatti {
+    /* border: 2px solid green; */
+}
+
+.contContactContatti{
+    /* border: 2px solid red; */
+    height: 50vh;
+    width: 53vh;
+
+}
+
+.NomeContatti{
+    /* border: 2px solid red; */
+    color: aliceblue;
+}
+
+.CognomeContatti{
+    /* border: 2px solid red; */
+    color: aliceblue;
+}
+
+.FormNomeCognome{
+    border-radius: 10px;
+    border: 2px solid;
+}
+
+
+.textContattDx{
+    width: 80%;
+    margin: 1%;
+}
+
+.cardCont{
+display: flex;
+justify-content: space-around;
+background-color: #1b2c3f;
+color: aliceblue;
+border: none;
+}
+
+.titoloColoreContatti{
+    color: #ffc999 ;
+    cursor: pointer;
+}
+
+.hrefContatti{
+    color:#ffc999 ;
+    text-decoration: none;
+}
+
+.emailForm{
+    color: aliceblue;
+}
+
+.emailFormArea{
+    border: none;
+    border-bottom: 1px solid;
+    color: aliceblue;
+    border-radius: 0%;
+    background-color: #1b2c3f;
+}
+
+.textFormTitle{
+    background-color: #1b2c3f;
+    border: none;
+    border-radius: 0%;
+    border-bottom: 1px solid;
+    color: aliceblue;
+}
