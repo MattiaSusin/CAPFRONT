@@ -1,0 +1,87 @@
+  /*!!!!!!!!!!!!!!!!!! FOOTER!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+  .contFooterTot{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1b2c3f;
+    color: aliceblue;
+  }
+  
+  .ptCen{
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid wheat; */
+  }
+  
+  /* .ptDx{
+  padding-top: 15px;
+  } */
+  #svgSocial{
+    cursor: pointer;
+  }
+  
+  #svgSocial:hover{
+    color: #ffc999;
+  }
+  .cursorInfoFooter{
+    cursor: pointer;
+  }
+  .cursorInfoFooter:hover{
+  color: #ffc999;
+  
+  }
+  
+  .imgFooter{
+  width: 190px;
+  height: 190px;
+  }
+  .imgFooter:hover{
+    color: #ffc999;
+    cursor: pointer;
+  }
+  .copyrightFooter{
+    font-size: x-small;
+  }
+  .copyrightFooter:hover{
+    color: #ffc999 ;
+    cursor: pointer;
+  }
+  .textGrassFooter{
+    cursor: pointer;
+  }
+  .textGrassFooter:hover{
+    color: #ffc999 ;
+  }
+
+  .areaRiservata{
+    display: flex;
+    justify-content: center;
+  }
+
+  .areaRiservata:hover{
+    color: #ffc999;
+    cursor: pointer;
+  }
+
+  .hrefFooter{
+    text-decoration: none;
+    color: aliceblue;
+  }
+
+  .ptSx {
+    .cursorInfoFooter {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    .contFooterTot {
+      flex-direction: column;
+      text-align: center;
+
+      .ptCen {
+        order: -1;
+      }
+    }
+  }
