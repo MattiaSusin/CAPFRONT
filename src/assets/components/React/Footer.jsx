@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 const Footer = () => {
   return (
     <div className="contFooterTot prova1">

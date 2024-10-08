@@ -4,8 +4,8 @@ import App from './App'
 import  './assets/components/Css/App.css'
 import '../src/assets/components/Css/TopBar.css'
 /* import '../src/assets/components/Css/HomePage.css' */
-/* import '../src/assets/components/Css/Menu.css'
-import '../src/assets/components/Css/Prenotazione.css' */
+/* import '../src/assets/components/Css/Menu.css' */
+import '../src/assets/components/Css/Prenotazione.css'
 import '../src/assets/components/Css/Footer.css'
 import '../src/assets/components/Css/Contatti.css'
 /* import '../src/assets/components/Css/LoginAdmin.css' */
