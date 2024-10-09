@@ -1,0 +1,109 @@
+.video-background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+     
+  }
+  
+  .video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transform: translate(-50%, -50%);
+    z-index: -1; 
+  }
+  
+  .content-overlay {
+    position: relative;
+    z-index: 1; 
+    color: white; 
+    text-align: center; 
+    padding: 20px;
+    align-items: center;
+    margin-top: 500px;
+  }
+
+  .topBarMenu{
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: #1b2c3f;
+    color: aliceblue;
+    font-size: x-large;
+    /* border: 2px solid; */
+  }
+
+  .topBarMenu:hover{
+    color: #ffc999;
+  }
+
+  .contBtnMenu{
+    display: flex;
+    justify-content: center;
+    background-color: #1b2c3f;
+  }
+  
+  /* .menu-content{
+    border: 2px solid white;
+  } */
+
+  .contElencoMenu{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: #1b2c3f;
+
+  }
+
+  .menuSx{
+    /* border: 2px solid red; */
+    width: 25%;
+    
+  }
+  .menuDx{
+    /* border: 2px solid red; */
+    width: 25%; 
+  }
+
+  .contMenuPiatti{
+    color: aliceblue;
+    /* border: 2px solid aliceblue; */
+    justify-content: space-between;
+    padding-left: 0px;
+    margin-bottom: 100px;
+    height: 190px;
+  }
+
+  .nomePiattoMenu{
+    font-weight: bold;
+    width: 490px;
+    height: 40%;
+    /* border: 2px solid; */
+    display: flex;
+    align-items: center;
+  }
+  .descrizionePiattoMenù{
+/* border:2px solid #f58625; */
+    width: 490px;
+    height: 56%;
+    display: flex;
+    align-items: center;
+  }
+
+  .priceMenu {
+    color: #ffc999;
+    /* border: 2px solid; */
+    width: 10%;
+  }
+
+  .imagginePiatto{
+    border: 2px solid wheat;
+    border-radius: 50%;
+    width: 8vh;
+    height: 8vh;
+  }
