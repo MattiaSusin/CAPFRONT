@@ -1,0 +1,6 @@
+.contHomePage{
+    height: 100vh;
+    width: 200vh;
+    border: 2px solid black;
+    align-items: center;
+}
