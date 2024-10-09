@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import {Dropdown, Form } from "react-bootstrap";
 
 const Prenotazione = () => {
