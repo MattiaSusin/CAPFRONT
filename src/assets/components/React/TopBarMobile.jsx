@@ -2,22 +2,23 @@ import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
 
 import {Container} from "react-bootstrap"
 import { NavLink } from "react-router-dom"
-/* import { FaBars, FaTimes } from "react-icons/fa"; */
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 
 const TopBarMobile = () => {
-    /* const [menuOpen, setMenuOpen] = useState(false) 
+    const [menuOpen, setMenuOpen] = useState(false) 
 
-    console.log("menuOpen", menuOpen) */
+    console.log("menuOpen", menuOpen) 
 
-    /* const toggleMenu = () => {
+     const toggleMenu = () => {
       setMenuOpen(!menuOpen)
       console.log("menuOpen", menuOpen)
-    }; */
+    };
 
     return(
       <Container fluid className="topBarMobile d-flex justify-content-between align-items-center">
-       {/*  <div className="d-flex align-items-center btnMobile m-2">
+        <div className="d-flex align-items-center btnMobile m-2">
           <button className="btnTopBar" onClick={toggleMenu}>
             {menuOpen ? <FaTimes/> : <FaBars/>}
             </button>
@@ -42,10 +43,10 @@ const TopBarMobile = () => {
             <button className="btnTopBar">PRENOTA</button>
             </NavLink>
           </div>   
-        )} */}
+        )}
 
 
-<div className="navbar w-100 border">
+{/* <div className="navbar w-100 border">
           <div className="logo">
           <NavLink to="/" className="nav-link">
           <img src="../../../src/assets/Images/Logo_Footer.png" alt="" className="imgLogoTopBarM"/>
@@ -67,7 +68,7 @@ const TopBarMobile = () => {
             <li className="mb-5"><a href="#">Prenota</a></li>
           </div>
         </div>
-      </div>
+      </div> */}
 
       </Container>
     )

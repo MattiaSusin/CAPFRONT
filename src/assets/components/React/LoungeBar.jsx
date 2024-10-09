@@ -1,7 +1,7 @@
 import { Card, CardBody, CardText, CardTitle } from "react-bootstrap";
 import videoSourceLoungeBar from "../../Video/LoungeBar.mp4";
 import { useState } from "react";
-import '../Css/LoungeBar.css'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const LoungeBar = () => {

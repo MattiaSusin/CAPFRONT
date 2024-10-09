@@ -1,6 +1,45 @@
 .contHomePage{
-    height: 100vh;
-    width: 200vh;
-    border: 2px solid black;
+    align-items: center;
+    height: 135vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.imgCarosello{
+height: 75%;
+}
+
+.contTotHome{
+    background-color: #1b2c3f;
+}
+
+.imgStaff{
+height: 50vh;
+}
+
+.titleStaff{
+    height: 20vh;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
+
+.h1Staff{
+    font-size: 8vh;
+    font-family: sans-serif;
+    color: #ffc999;
+}
+
+.h2Staff{
+    color: #ffc999;
+    font-size: 3vh;
+    font-family: sans-serif;
+}
+.pTextstaff{
+    width: 50vh;
+    font-size: 2vh;
+    font-family: sans-serif;
+}
+

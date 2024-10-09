@@ -11,7 +11,7 @@ import '../src/assets/components/Css/Contatti.css'
 /* import '../src/assets/components/Css/LoginAdmin.css' */
 /* import '../src/assets/components/Css/DashBoardPrenotazioni.css' */
 /* import '../src/assets/components/Css/MenuAdmin.css' */
-/* import '../src/assets/components/Css/LoungeBar.css' */
+import '../src/assets/components/Css/LoungeBar.css'
 /* import App from './App.jsx'
 import './assets/Css/index.css' */
 
