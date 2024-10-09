@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import { Carousel, Image } from "react-bootstrap";
-import immage from '../../Images/Piatti/piatto menu.jpg'
+import image from '../../Images/Piatti/piatto menu.jpg'
 import "../Css/HomePage.css";
 
 const HomePage = () => {
@@ -67,7 +67,7 @@ const HomePage = () => {
         </div>
 
         <div className="d-flex justify-content-around">
-          <img alt="" className=" imgStaff" />
+          <img alt="" src="../../Images/preparing-refreshing-cocktail-bar.jpg" className=" imgStaff" />
           <div className="mt-5">
             <h2 className="h2Staff mb-5 ">LA SALA</h2>
             <p className="text-white  pTextstaff">
@@ -83,8 +83,8 @@ const HomePage = () => {
         </div>
         <div className="d-flex justify-content-around">
           <img alt="" src="" className=" imgStaff" />
-          <immage className="video-background" autoPlay muted loop>
-          <source src={immage} type="img" />
+          <immage className="video-background">
+          <source src={image} type="img" />
           Il tuo browser non supporta il tag video.
         </immage>
           <div className="mt-5">
