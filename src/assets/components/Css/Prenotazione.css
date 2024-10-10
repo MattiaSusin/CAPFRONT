@@ -62,6 +62,7 @@
 
     .labelForm{
       width: 30vh;
+      color: white;
     }
 
     #datelabel{
@@ -77,4 +78,8 @@
     .pTitoloPrenotazione{
       font-size: 2vh;
       color: #ffc999;
+    }
+
+    #btnprenotazione{
+      width: 202vh;
     }
