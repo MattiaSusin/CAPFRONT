@@ -61,11 +61,17 @@ const Prenotazione = () => {
           alt=""
           className="imgPrenotazione"
         />
+        
+        <div className="text-center mt-5"> {/* TITOLO INTESTAZIONE */}
+          <h1 className="h1TitoloPrenotazione  mb-5">RISERVA IL TUO TAVOLO</h1>
+           <p className="pTitoloPrenotazione">Ogni tavolo è una nuova avventura: prenota il tuo viaggio nel gusto!</p>
+        </div>
+        
       <div className="d-flex mt-5 mb-5">
         <Form className="mt-5 ">
         <Col md={6} className=" contFormContatti">
         
-          <Card className="form1Riga">
+          <Card className="form1Riga border-0">
             <Card.Body>
             {success && (
                       <>
@@ -134,13 +140,14 @@ const Prenotazione = () => {
                       {/* -----------------EMAIL------------------ */}
                       
                       <FormGroup>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="labelForm">Email*</FormLabel>
                   <FormControl
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     isInvalid={!!errors.email}
+                    className="labelContatti border-bottom border-white rounded-0"
                   />
                   <FormControl.Feedback type="invalid">
                     {errors.email}
@@ -154,95 +161,17 @@ const Prenotazione = () => {
         </Form>
       </div>
 
-{/* SECONDA RIGA */}
+{/*------------------------------------------- SECONDA RIGA------------------------------------------- */}
 
-      <div>
-      <Form className="mt-5 ">
-        <Col md={6} className=" contFormContatti">
+    
+      </div>
+
+      
         
-          <Card className="form1Riga">
-            <Card.Body>
-              <Form onSubmit={handleSubmit} className="">
-
-                {/* -----------------NOME------------------ */}
-
-                <FormGroup>
-                  <FormLabel>Date</FormLabel>
-                  <DatePicker
-                    selected={formData.date}
-                    onChange={handleDateChange}
-                    className={`form-control ${errors.date ? "is-invalid" : ""}`}
-                  />
-                  {errors.date && <div className="invalid-feedback">{errors.date}</div>}
-                </FormGroup>
-
-                      {/* -----------------COGNOME------------------ */}
-
-                      <FormGroup className="mb-4">
-
-                        <FormLabel className="labelForm">Cognome*</FormLabel>
-                        <FormControl
-                          type="text"
-                          name="cognome"
-                          value={formData.cognome}
-                          onChange={handleChange}
-                          isInvalid={!!errors.cognome}
-                          className="labelContatti border-bottom border-white rounded-0"
-                        />
-                        <FormControl.Feedback type="invalid">
-                          {errors.cognome}
-                        </FormControl.Feedback>
-                      </FormGroup>
-
-                      {/* -----------------TELEFONO------------------ */}
-
-                      <FormGroup className="mb-4">
-                        <FormLabel className="labelForm">Telefono*</FormLabel>
-                        <FormControl
-                          type="text"
-                          name="telefono"
-                          value={formData.telefono}
-                          onChange={handleChange}
-                          isInvalid={!!errors.telefono}
-                          className="labelContatti border-bottom border-white rounded-0"
-                        />
-                        <FormControl.Feedback type="invalid">
-                          {errors.telefono}
-                        </FormControl.Feedback>
-                      </FormGroup>
-
-                      {/* -----------------EMAIL------------------ */}
-                      
-                      <FormGroup>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    isInvalid={!!errors.email}
-                  />
-                  <FormControl.Feedback type="invalid">
-                    {errors.email}
-                  </FormControl.Feedback>
-                </FormGroup>
-              </Form>
-              
-            </Card.Body>
-          </Card>
-        </Col>
-        </Form>
-      </div>
-      </div>
-
-      <div className="formPrenotazione">
-      <div className="contIntestazioneFormPrenotazione"> {/* TITOLO INTESTAZIONE */}
-        <h1 className="h1TitoloPrenotazione">RISERVA IL TUO TAVOLO</h1>
-        <p className="pTitoloPrenotazione">Ogni tavolo è una nuova avventura: prenota il tuo viaggio nel gusto!</p>
-      </div>
+    
         
         <div style={{ width: '100%' }}> {/*MAPS LOCALE*/}
-      <iframe
+        <iframe
         title="Google Map"
         width="100%"
         height="650"
@@ -250,8 +179,8 @@ const Prenotazione = () => {
         src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Viale%20Fratelli%20Cairoli,%20181%20,%20Treviso%20-%2031100+(Restaurant%20&amp;%20Lounge)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
         allowFullScreen
       ></iframe>
-    </div>
         </div>
+     
       </div>
     
   );

@@ -40,8 +40,9 @@
 
     .form1Riga{
       width:200vh ;
-      border: 2px solid red;
-      
+      /* border: 2px solid red; */
+    
+      background-color: #1b2c3f;
     }
 
     .btnFormPrenotazione{
@@ -57,4 +58,23 @@
     .btnFormPrenotazione:hover{
       background-image: linear-gradient(to bottom, #ffc999, #ffebdb);
       color: #f58625;
+    }
+
+    .labelForm{
+      width: 30vh;
+    }
+
+    #datelabel{
+      width: 10vh;
+    }
+
+    .h1TitoloPrenotazione{
+      font-size: 5vh;
+      color: #ffc999;
+      font-weight: bold;
+    }
+
+    .pTitoloPrenotazione{
+      font-size: 2vh;
+      color: #ffc999;
     }
