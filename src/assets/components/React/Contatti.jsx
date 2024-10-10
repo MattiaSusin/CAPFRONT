@@ -1,10 +1,57 @@
-import { Card, FormControl, FormGroup, FormLabel } from "react-bootstrap";
+import {
+  Alert,
+  Button,
+  Card,
+  Col,
+  Form,
+  FormControl,
+  FormGroup,
+  FormLabel
+} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 const Contatti = () => {
+  const [formData, setFormData] = useState({
+    nome: "",
+    cognome: "",
+    email: "",
+    messaggio: "",
+  });
+
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validate = () => {
+    let errors = {};
+    if (!formData.nome) errors.nome = "Il nome è da inserire";
+    if (!formData.cognome) errors.cognome = "Il cognome è da inserire";
+    if (!formData.email) errors.email = "L'email è da inserire";
+    if (!formData.messaggio) errors.messaggio = "Il messaggio è da inserire";
+    return errors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validateErrors = validate();
+    if (Object.keys(validateErrors).length === 0) {
+      console.log("form submitted", formData);
+      window.location.href = "/";
+      setSuccess(true);
+    } else {
+      setErrors(validateErrors);
+      setSuccess(false);
+    }
+  };
+
   return (
     <div className="contFormPrenotazione">
       {/* IMG INIZIALE */}
-      <div>
+      <div className="">
         <img
           src="../../../src/assets/Images/Prenotazione.jpg"
           alt=""
@@ -13,10 +60,12 @@ const Contatti = () => {
       </div>
       {/* INIZIO  */}
 
-      <div className="mt-5  cont1FormContatti d-flex justify-content-evenly">
+      <div className="mt-5  cont1FormContatti d-flex justify-content-around">
         {" "}
         {/* ------------------------------------------ CONTENITORE 1 ----------------------------------------------- */}
-        <div className="contContactContatti mt-5 mb-5">
+        <div className="contContactContatti mt-5 mb-5 d-flex">
+          <div>
+
           <div className="d-flex mb-5">
             <div>
               <svg
@@ -121,53 +170,96 @@ const Contatti = () => {
               </Card.Body>
             </Card>
           </div>
-
-          {/*-------------------------------------------------- FINE-------------------------------------- */}
-          <div></div>
-        </div>
-        <div>
-          {" "}
-          {/* CONTENITORE DX */}
-          <div className="contFormContatti mt-5 mb-5">
-            {" "}
-            {/* DATI FORM CONTATTI */}
-            {/* NOME*/}
-            <div className="NomeContatti ">
-              <FormLabel>Nome*</FormLabel>
-              <FormControl
-                type="name"
-                className="border-top-0 border-end-0 border-start-0 rounded-0 bg-transparent  colore "
-              />
-            </div>
-            {/*COGNOME*/}
-            <div className="CognomeContatti mt-4 mb-4">
-              <FormLabel>Cognome*</FormLabel>
-              <FormControl
-                type="surname"
-                className="border-top-0 border-end-0 border-start-0 rounded-0 bg-transparent  FormNome"
-              />
-            </div>
-            {/*EMAIL*/}
-            <FormGroup className="mb-3" controlId="formBasicEmail">
-              <FormLabel className="emailForm">
-                Inserisci la tua email*
-              </FormLabel>
-              <FormControl type="email" className="emailFormArea" />
-            </FormGroup>
-            {/*TEL*/}
-            {/* TEXT AREA*/}
-            <FormLabel className="emailForm mt-3">
-              Scrivi il tuo messaggio*
-            </FormLabel>
-            <div className="form-floating">
-              <textarea className="form-control textFormTitle"></textarea>
-              {/* <label form="floatingTextarea">
-              </label> */}
-            </div>
-            <button className="mt-5 btnFormPrenotazione">
-              INVIA MESSAGGIO
-            </button>
           </div>
+          
+              <Col md={6} className=" contFormContatti">
+                <Card className="cardContattiForm border-0">
+                  <Card.Body>
+                    <Card.Title className="justify-content-center d-flex mb-5 cardTitle">CONTATTACI</Card.Title>
+                    {success && (
+                      <>
+                        <Alert variant={"success"}>
+                          Form submitted successfully
+                        </Alert>
+                        <p>
+                          Riceverai una risposta quanto prima dal nostro staff
+                        </p>
+                      </>
+                    )}
+                    <Form onSubmit={handleSubmit}>
+                      <FormGroup className="mb-4">
+                        <FormLabel className="labelForm">Nome*</FormLabel>
+                        <FormControl
+                          type="text"
+                          name="nome"
+                          value={formData.nome}
+                          onChange={handleChange}
+                          isInvalid={!!errors.nome}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.nome}
+                        </FormControl.Feedback>
+                      </FormGroup>
+                      <FormGroup className="mb-4">
+                        <FormLabel className="labelForm">Cognome*</FormLabel>
+                        <FormControl
+                          type="text"
+                          name="cognome"
+                          value={formData.cognome}
+                          onChange={handleChange}
+                          isInvalid={!!errors.cognome}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.cognome}
+                        </FormControl.Feedback>
+                      </FormGroup>
+                      <FormGroup className="mb-4">
+                        <FormLabel className="labelForm">Email*</FormLabel>
+                        <FormControl
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          isInvalid={!!errors.email}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.email}
+                        </FormControl.Feedback>
+                      </FormGroup>
+                      <FormGroup className="mb-4">
+                        <FormLabel className="labelForm">Messaggio*</FormLabel>
+                        <FormControl
+                          as="textarea"
+                          name="messaggio"
+                          value={formData.messaggio}
+                          onChange={handleChange}
+                          isInvalid={!!errors.messaggio}
+                          row={3}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.messaggio}
+                        </FormControl.Feedback>
+                      </FormGroup>
+                      <div className=" justify-content-center d-flex align-items-center">
+                      <Button type="submit" className="mt-3 btnFormPrenotazione ">
+                        INVIA
+                      </Button>
+
+                      </div>
+                    </Form>
+                  </Card.Body>
+                </Card>
+              </Col>
+          
+
+
+          
+          {/*-------------------------------------------------- FINE-------------------------------------- */}
+
         </div>
       </div>
 

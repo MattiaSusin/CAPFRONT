@@ -14,26 +14,41 @@
     color: aliceblue;
 }
 
-.contFormContatti{
-    /* border: 2px solid white; */
-    width: 49vh;
-    height: 50vh;
-}
-
-.cont1FormContatti {
-    /* border: 2px solid green; */
-}
-
 .contContactContatti{
     /* border: 2px solid red; */
-    height: 50vh;
-    width: 53vh;
+    height: 55vh;
+    width: 100%;
+    justify-content: space-around;
+}
+.contFormContatti{
+    width: 50vh;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
 
+.cardContattiForm{
+    height: 100%;
+    background-color: #1b2c3f;
+    color: aliceblue;
+
+}
+.cardTitle{
+    font-family: sans-serif;
+    font-size: 3vh;
+    color: #ffc999;
+}
+.labelContatti{
+    background-color: #1b2c3f;
+    border: none;
 }
 
 .NomeContatti{
     /* border: 2px solid red; */
     color: aliceblue;
+}
+.labelForm{
+    color: #ffc999;
 }
 
 .CognomeContatti{
