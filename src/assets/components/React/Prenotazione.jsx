@@ -1,16 +1,238 @@
+import { Alert } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Dropdown, Form } from "react-bootstrap";
+import { useState } from "react";
+import {Card, Col,Form, FormControl, FormGroup, FormLabel } from "react-bootstrap";
+import DatePicker from 'react-datepicker';
 
 const Prenotazione = () => {
+
+  const [formData, setFormData] = useState({
+    nome: "",
+    cognome: "",
+    telefono: "",
+    email: "",
+    date: "",
+    orario: "",
+    coperti: ""
+  });
+
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleDateChange = (date) => {
+    setFormData({ ...formData, date });
+  }
   
+  const validate = () => {
+    let errors = {};
+    if (!formData.nome) errors.nome = "Il nome è da inserire";
+    if (!formData.cognome) errors.cognome = "Il cognome è da inserire";
+    if (!formData.telefono) errors.telefono = "Il telefono è da inserire";
+    if (!formData.email) errors.email = "L'email è da inserire";
+    if (!formData.date) errors.date = "La data è da inserire";
+    if (!formData.orario) errors.orario = "L'orario è da inserire";
+    if (!formData.coperti) errors.coperti = "Il numero delle persone è da inserire";
+    return errors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length === 0) {
+      console.log("Form submitted", formData);
+      window.location.href = "/loungeBar";
+      setSuccess(true);
+    } else {
+      setErrors(validationErrors);
+      setSuccess(false);
+    }
+  };
+
   return (
-    <div>
+    <div className="contTotPrenotazioni">
       <div>
         <img
           src="../../../src/assets/Images/Prenotazione.jpg"
           alt=""
           className="imgPrenotazione"
         />
+      <div className="d-flex mt-5 mb-5">
+        <Form className="mt-5 ">
+        <Col md={6} className=" contFormContatti">
+        
+          <Card className="form1Riga">
+            <Card.Body>
+            {success && (
+                      <>
+                        <Alert variant={"success"}>
+                          Form submitted successfully
+                        </Alert>
+                        <p>
+                          Riceverai una risposta quanto prima dal nostro staff
+                        </p>
+                      </>
+                    )}
+              <Form onSubmit={handleSubmit} className="d-flex justify-content-around">
+
+                {/* -----------------NOME------------------ */}
+
+                <FormGroup className="mb-4">
+                        <FormLabel className="labelForm">Nome*</FormLabel>
+                        <FormControl
+                          type="text"
+                          name="nome"
+                          value={formData.nome}
+                          onChange={handleChange}
+                          isInvalid={!!errors.nome}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.nome}
+                        </FormControl.Feedback>
+                      </FormGroup>
+
+                      {/* -----------------COGNOME------------------ */}
+
+                      <FormGroup className="mb-4">
+
+                        <FormLabel className="labelForm">Cognome*</FormLabel>
+                        <FormControl
+                          type="text"
+                          name="cognome"
+                          value={formData.cognome}
+                          onChange={handleChange}
+                          isInvalid={!!errors.cognome}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.cognome}
+                        </FormControl.Feedback>
+                      </FormGroup>
+
+                      {/* -----------------TELEFONO------------------ */}
+
+                      <FormGroup className="mb-4">
+                        <FormLabel className="labelForm">Telefono*</FormLabel>
+                        <FormControl
+                          type="text"
+                          name="telefono"
+                          value={formData.telefono}
+                          onChange={handleChange}
+                          isInvalid={!!errors.telefono}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.telefono}
+                        </FormControl.Feedback>
+                      </FormGroup>
+
+                      {/* -----------------EMAIL------------------ */}
+                      
+                      <FormGroup>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    isInvalid={!!errors.email}
+                  />
+                  <FormControl.Feedback type="invalid">
+                    {errors.email}
+                  </FormControl.Feedback>
+                </FormGroup>
+              </Form>
+              
+            </Card.Body>
+          </Card>
+        </Col>
+        </Form>
+      </div>
+
+{/* SECONDA RIGA */}
+
+      <div>
+      <Form className="mt-5 ">
+        <Col md={6} className=" contFormContatti">
+        
+          <Card className="form1Riga">
+            <Card.Body>
+              <Form onSubmit={handleSubmit} className="">
+
+                {/* -----------------NOME------------------ */}
+
+                <FormGroup>
+                  <FormLabel>Date</FormLabel>
+                  <DatePicker
+                    selected={formData.date}
+                    onChange={handleDateChange}
+                    className={`form-control ${errors.date ? "is-invalid" : ""}`}
+                  />
+                  {errors.date && <div className="invalid-feedback">{errors.date}</div>}
+                </FormGroup>
+
+                      {/* -----------------COGNOME------------------ */}
+
+                      <FormGroup className="mb-4">
+
+                        <FormLabel className="labelForm">Cognome*</FormLabel>
+                        <FormControl
+                          type="text"
+                          name="cognome"
+                          value={formData.cognome}
+                          onChange={handleChange}
+                          isInvalid={!!errors.cognome}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.cognome}
+                        </FormControl.Feedback>
+                      </FormGroup>
+
+                      {/* -----------------TELEFONO------------------ */}
+
+                      <FormGroup className="mb-4">
+                        <FormLabel className="labelForm">Telefono*</FormLabel>
+                        <FormControl
+                          type="text"
+                          name="telefono"
+                          value={formData.telefono}
+                          onChange={handleChange}
+                          isInvalid={!!errors.telefono}
+                          className="labelContatti border-bottom border-white rounded-0"
+                        />
+                        <FormControl.Feedback type="invalid">
+                          {errors.telefono}
+                        </FormControl.Feedback>
+                      </FormGroup>
+
+                      {/* -----------------EMAIL------------------ */}
+                      
+                      <FormGroup>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    isInvalid={!!errors.email}
+                  />
+                  <FormControl.Feedback type="invalid">
+                    {errors.email}
+                  </FormControl.Feedback>
+                </FormGroup>
+              </Form>
+              
+            </Card.Body>
+          </Card>
+        </Col>
+        </Form>
+      </div>
       </div>
 
       <div className="formPrenotazione">
@@ -18,125 +240,7 @@ const Prenotazione = () => {
         <h1 className="h1TitoloPrenotazione">RISERVA IL TUO TAVOLO</h1>
         <p className="pTitoloPrenotazione">Ogni tavolo è una nuova avventura: prenota il tuo viaggio nel gusto!</p>
       </div>
-        {" "}
-        {/*BLOCCO  FORM*/}
-        <div className="contFormPrenotazione">
-          <div >
-            {" "}
-            {/* PRIMA RIGA  */}
-            
-            <Form>
-              <Form.Group
-                className="contprimaRigaPrenotazione"
-                controlId="exampleForm.ControlInput1"
-              >
-                <div className="NomePrenotazione">
-                  <Form.Label>Nome*</Form.Label>
-                  <Form.Control
-                    type="name"
-                    placeholder="Nome*"
-                    className="border-top-0 border-end-0 border-start-0 rounded-0 bg-transparent pb-4 colore "
-                  />
-                </div>
-                <div className="CognomePrenotazione">
-                  <Form.Label>Cognome*</Form.Label>
-                  <Form.Control type="surname" placeholder="" className="border-top-0 border-end-0 border-start-0 rounded-0 bg-transparent pb-4" />
-                </div>
-
-                <div className="TelPrenotazione">
-                  <Form.Label>Telefono*</Form.Label>
-                  <Form.Control type="telefono" placeholder="" className="border-top-0 border-end-0 border-start-0 rounded-0 bg-transparent pb-4"/>
-                </div>
-              </Form.Group>
-            </Form>
-          </div>
-          <div>
-            {" "}
-            {/* SECONDA RIGA */}
-            <div className="contSecondaRigaPrenotazione">
-              {/* DATA PRENOTAZIONE */}
-              <Form className="FormDataPrenotazione">
-                <Form.Group controlId="formDate" className="d-flex">
-                  <Form.Control
-                    type="date"
-                    className="border-top-0 border-end-0 border-start-0 rounded-0 bg-transparent text-light pb-5"
-                  />
-                </Form.Group>
-              </Form>
-              {/*ORARIO PRENOTAZIONE */}
-              
-              <Dropdown className="dropDownOraPrenotazione">
-                <Dropdown.Toggle
-                  variant=""
-                  id="dropdown-basic"
-                  className="d-flex align-items-center text-light border-0"
-                >
-                  09:00
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu>
-                  <Dropdown.Item href="#/azione1">12:00</Dropdown.Item>
-                  <Dropdown.Item href="#/azione2">12:30</Dropdown.Item>
-                  <Dropdown.Item href="#/azione3">13:00</Dropdown.Item>
-                  <Dropdown.Item href="#/azione1">13:30</Dropdown.Item>
-                  <Dropdown.Item href="#/azione2">14:00</Dropdown.Item>
-                  <hr className="ms-3 me-3" />
-                  <Dropdown.Item href="#/azione3">19:00</Dropdown.Item>
-                  <Dropdown.Item href="#/azione1">19:30</Dropdown.Item>
-                  <Dropdown.Item href="#/azione2">20:00</Dropdown.Item>
-                  <Dropdown.Item href="#/azione3">20:30</Dropdown.Item>
-                  <Dropdown.Item href="#/azione1">21:00</Dropdown.Item>
-                  <Dropdown.Item href="#/azione2">21:30</Dropdown.Item>
-                  <Dropdown.Item href="#/azione3">22:00</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-
-             
-
-              {/* POSTI A SEDERE */}
-              <div className="contPostiPrenotazione">
-                
-                <Dropdown className="dropDownPersPrenotazione">
-                  <Dropdown.Toggle
-                    variant=""
-                    id="dropdown-basic"
-                    className="d-flex align-items-center text-light border-0 "
-                  >
-                    Numero persone
-                  </Dropdown.Toggle>
-
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/azione1">1</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">2</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">3</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">4</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">5</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">6</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">7</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">8</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">9</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">10</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">12</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">13</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">14</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">15</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">16</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">17</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">18</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">19</Dropdown.Item>
-                    <Dropdown.Item href="#/azione1">20</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
-            </div>
-          </div>
-          <div className="contBtnFormPrenotazione">
-            <button className="btnFormPrenotazione">
-              PRENOTA ORA 
-            </button>
-          </div>
-        </div>
-        <div>
+        
         <div style={{ width: '100%' }}> {/*MAPS LOCALE*/}
       <iframe
         title="Google Map"
@@ -149,7 +253,7 @@ const Prenotazione = () => {
     </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 

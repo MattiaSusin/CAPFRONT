@@ -34,69 +34,16 @@
     }
     
     /*!!!!!!!!!!!!!! SISTEMAZIONE BLOCCHI FORM!!!!!!!!!!!!!!!!!!!!!*/
-    .contIntestazioneFormPrenotazione{
-      padding: 50px 0px; 
-     text-align: center;
-     color: aliceblue;
+    .contTotPrenotazioni{
+      background-color: #1b2c3f;
     }
-    .h1TitoloPrenotazione{
-    font-size: 70px;
-    padding-bottom: 10px;
-    color: #ffc999;
+
+    .form1Riga{
+      width:200vh ;
+      border: 2px solid red;
+      
     }
-    .pTitoloPrenotazione{
-      font-size: 20px;
-    }
-    .contprimaRigaPrenotazione{
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly; 
-      padding: 40px 0px;
-    }
-    
-    .NomePrenotazione{
-      width: 350px;
-    }
-    
-    .CognomePrenotazione{
-    width: 350px;
-    }
-    
-    .TelPrenotazione{
-      width: 350px;
-    }
-    
-    .contSecondaRigaPrenotazione{
-     /*  margin-left: 211px;
-      margin-right: 232px; */
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-    padding: 60px 0px;
-    }
-    .dropDownOraPrenotazione{
-      width: 350px;
-      border-bottom: 0.5px solid;
-      height: 87.19px;
-    }
-    .dropDownPersPrenotazione{
-      border-bottom: 0.5px solid;
-      width: 350px;
-      height: 87.19px;
-      padding-bottom: 15px;
-    }
-    
-    .FormDataPrenotazione{
-      width: 350px;
-      height: 80px;
-    }
-    
-    .contBtnFormPrenotazione{
-      display: flex;
-      justify-content: center;
-      padding: 50px 0px 100px;
-    }
-    
+
     .btnFormPrenotazione{
       color:  #ffc999;
       font-size: 20px;
@@ -110,20 +57,4 @@
     .btnFormPrenotazione:hover{
       background-image: linear-gradient(to bottom, #ffc999, #ffebdb);
       color: #f58625;
-    }
-    #inputForm {
-      background: transparent; /* Rende lo sfondo trasparente */
-      border: 1px solid #ccc; /* Definisce un bordo, opzionale */
-      color: #fff; /* Colore del testo, se necessario */
-      padding: 10px;
-      border-radius: 5px; /* Bordo arrotondato */
-    }
-    
-    .input{
-      background-color: transparent !important;
-      border: none;
-    }
-    
-    #inputForm{
-      background-color: #1b2c3f;
     }
