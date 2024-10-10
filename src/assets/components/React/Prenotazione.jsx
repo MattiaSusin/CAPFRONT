@@ -2,7 +2,7 @@ import { Alert } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import {Card, Col,Form, FormControl, FormGroup, FormLabel } from "react-bootstrap";
-import DatePicker from 'react-datepicker';
+import DatePicker from "react-datepicker";
 
 const Prenotazione = () => {
 
@@ -83,9 +83,10 @@ const Prenotazione = () => {
                         </p>
                       </>
                     )}
-              <Form onSubmit={handleSubmit} className="d-flex justify-content-around">
+              <Form onSubmit={handleSubmit} className="">
 
                 {/* -----------------NOME------------------ */}
+                <div className="d-flex justify-content-around">
 
                 <FormGroup className="mb-4">
                         <FormLabel className="labelForm">Nome*</FormLabel>
@@ -153,17 +154,105 @@ const Prenotazione = () => {
                     {errors.email}
                   </FormControl.Feedback>
                 </FormGroup>
+                </div>
+
+                <div className="d-flex justify-content-around mt-5">
+                  {/*------------------ DATA------------------ */}
+                  <FormGroup>
+                  <FormLabel>Date</FormLabel>
+                  <DatePicker
+                    selected={formData.date}
+                    onChange={handleDateChange}
+                    className={`form-control ${errors.date ? "is-invalid" : ""}`}
+                    id="datelabel"
+                  />
+                  {errors.date && <div className="invalid-feedback">{errors.date}</div>}
+                </FormGroup>
+
+                {/*------------------ ORARIO ------------------ */}
+
+                <FormGroup>
+                  <FormLabel className="labelForm" >Orario</FormLabel>
+                  <FormControl
+                    as="select"
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    isInvalid={!!errors.gender}
+                    className="labelContatti border-bottom border-white rounded-0"
+                  >
+                    <option value="">Select a gender</option>
+                    <option value="17.00">17.00</option>
+                    <option value="17.30">17.30</option>
+                    <option value="18.00">18.00</option>
+                    <option value="18.00">18.30</option>
+                    <option value="18.00">19.00</option>
+                    <option value="18.00">19.30</option>
+                    <option value="18.00">20.00</option>
+                    <option value="18.00">20.30</option>
+                    <option value="18.00">21.00</option>
+                    <option value="18.00">21.30</option>
+                    <option value="18.00">22.00</option>
+                    <option value="18.00">18.00</option>
+
+                  </FormControl>
+                  <FormControl.Feedback type="invalid">
+                    {errors.gender}
+                  </FormControl.Feedback>
+                </FormGroup>
+
+                {/*------------------ COPERTI ------------------ */}
+
+                <FormGroup>
+                  <FormLabel className="labelForm" >Numero Persone</FormLabel>
+                  <FormControl
+                    as="select"
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    isInvalid={!!errors.gender}
+                    className="labelContatti border-bottom border-white rounded-0"
+                  >
+                    <option value="">Select a gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </FormControl>
+                  <FormControl.Feedback type="invalid">
+                    {errors.gender}
+                  </FormControl.Feedback>
+                </FormGroup>
+
+                {/*------------------ TIPO PRENOTAZIONE ------------------ */}
+
+                <FormGroup>
+                  <FormLabel className="labelForm">Luogo</FormLabel>
+                  <FormControl
+                    as="select"
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                    isInvalid={!!errors.gender}
+                    className="labelContatti border-bottom border-white rounded-0"
+                  >
+                    <option value="">Select a gender</option>
+                    <option value="male">Lounge Bar</option>
+                    <option value="female">Ristorante</option>
+                  </FormControl>
+                  <FormControl.Feedback type="invalid">
+                    {errors.gender}
+                  </FormControl.Feedback>
+                </FormGroup>
+
+                </div>
+
               </Form>
               
             </Card.Body>
           </Card>
         </Col>
         </Form>
-      </div>
-
-{/*------------------------------------------- SECONDA RIGA------------------------------------------- */}
-
-    
+      </div>    
       </div>
 
       
