@@ -69,7 +69,6 @@ const Prenotazione = () => {
           alt=""
           className="imgPrenotazione"
         />
-
         <div className="text-center mt-5">
           {" "}
           {/* TITOLO INTESTAZIONE */}
@@ -78,9 +77,7 @@ const Prenotazione = () => {
             Ogni tavolo è una nuova avventura: prenota il tuo viaggio nel gusto!
           </p>
         </div>
-
         <div className="d-flex mt-5 mb-5">
-         
             <Col md={6} className=" contFormContatti">
               <Card className="form1Riga border-0">
                 <Card.Body>
@@ -111,9 +108,7 @@ const Prenotazione = () => {
                           {errors.nome}
                         </FormControl.Feedback>
                       </FormGroup>
-
                       {/* -----------------COGNOME------------------ */}
-
                       <FormGroup className="mb-4">
                         <FormLabel className="labelForm">Cognome*</FormLabel>
                         <FormControl
@@ -128,9 +123,7 @@ const Prenotazione = () => {
                           {errors.cognome}
                         </FormControl.Feedback>
                       </FormGroup>
-
                       {/* -----------------TELEFONO------------------ */}
-
                       <FormGroup className="mb-4">
                         <FormLabel className="labelForm">Telefono*</FormLabel>
                         <FormControl
@@ -145,9 +138,7 @@ const Prenotazione = () => {
                           {errors.telefono}
                         </FormControl.Feedback>
                       </FormGroup>
-
                       {/* -----------------EMAIL------------------ */}
-
                       <FormGroup>
                         <FormLabel className="labelForm">Email*</FormLabel>
                         <FormControl
@@ -163,7 +154,6 @@ const Prenotazione = () => {
                         </FormControl.Feedback>
                       </FormGroup>
                     </div>
-
                     <div className="d-flex justify-content-around mt-5">
                       {/*------------------ DATA------------------ */}
                       <FormGroup>
@@ -180,9 +170,7 @@ const Prenotazione = () => {
                           <div className="invalid-feedback">{errors.date}</div>
                         )}
                       </FormGroup>
-
                       {/*------------------ ORARIO ------------------ */}
-
                       <FormGroup>
                         <FormLabel className="labelForm">Orario*</FormLabel>
                         <FormControl
@@ -217,9 +205,7 @@ const Prenotazione = () => {
                           {errors.gender}
                         </FormControl.Feedback>
                       </FormGroup>
-
                       {/*------------------ COPERTI ------------------ */}
-
                       <FormGroup>
                         <FormLabel className="labelForm">
                           Numero Persone*
@@ -252,9 +238,7 @@ const Prenotazione = () => {
                         <FormControl.Feedback type="invalid">
                           {errors.gender}
                         </FormControl.Feedback>
-                      </FormGroup>
-
-                     
+                      </FormGroup>                  
                     </div>
             <div className=" justify-content-center d-flex mt-5" id="btnprenotazione">
               <Button type="submit" className="mt-3 btnFormPrenotazione ">
@@ -268,7 +252,6 @@ const Prenotazione = () => {
           
         </div>
       </div>
-
       <div style={{ width: "100%" }}>
         {" "}
         {/*MAPS LOCALE*/}

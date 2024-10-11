@@ -10,6 +10,8 @@ import LoungeBar from './assets/components/React/LoungeBar'
 import Menu from './assets/components/React/Menu'
 import LoginAdmin from './assets/components/React/LoginAdmin'
 import MenuAdmin from './assets/components/React/MenuAdmin'
+import MenuSettings from './assets/components/React/MenuSettings'
+import DashBoardPrenotazioni from './assets/components/React/DashboardPrenotazioni'
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
 
        <Route path="/loginAdmin" element={<LoginAdmin/>} />
        <Route path="/menuAdmin" element={<MenuAdmin/>} />
+       <Route path="/dashboard" element={<DashBoardPrenotazioni/>} />
+       <Route path="/menuSettings" element={<MenuSettings/>} />
 
        </Routes>
       <Footer/>                                   

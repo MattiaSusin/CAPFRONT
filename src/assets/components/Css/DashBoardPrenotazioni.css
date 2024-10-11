@@ -1,0 +1,16 @@
+body{
+    background-color: #1b2c3f;
+}
+
+.contDash{
+height: 100vh;
+}
+ 
+.formDash{
+    width: 25%;
+}
+
+.h1Dash{
+    font-size: 8vh;
+    color: #ffc999;
+}

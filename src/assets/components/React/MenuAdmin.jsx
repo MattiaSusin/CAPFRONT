@@ -12,11 +12,9 @@ const MenuAdmin = () => {
             <NavLink to="/" className="nav-link">
             <Button className="btnFormPrenotazione me-5">DRINK LIST</Button>
             </NavLink>
-            <NavLink to="/" className="nav-link">
+            <NavLink to="/menuSettings" className="nav-link">
             <Button className="btnFormPrenotazione me-5">MENU</Button>
             </NavLink>
-            
-
         </div>
     )
 }
