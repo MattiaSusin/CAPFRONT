@@ -254,26 +254,7 @@ const Prenotazione = () => {
                         </FormControl.Feedback>
                       </FormGroup>
 
-                      {/*------------------ TIPO PRENOTAZIONE ------------------ */}
-
-                      <FormGroup>
-                        <FormLabel className="labelForm">Luogo*</FormLabel>
-                        <FormControl
-                          as="select"
-                          name="luogo"
-                          value={formData.luogo}
-                          onChange={handleChange}
-                          isInvalid={!!errors.luogo}
-                          className="labelContatti border-bottom border-white rounded-0"
-                        >
-                          <option value="">Seleziona il luogo</option>
-                          <option value="Lounge Bar">Lounge Bar</option>
-                          <option value="Ristorante">Ristorante</option>
-                        </FormControl>
-                        <FormControl.Feedback type="invalid">
-                          {errors.gender}
-                        </FormControl.Feedback>
-                      </FormGroup>
+                     
                     </div>
             <div className=" justify-content-center d-flex mt-5" id="btnprenotazione">
               <Button type="submit" className="mt-3 btnFormPrenotazione ">
