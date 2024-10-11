@@ -52,7 +52,7 @@ const LoginAdmin = () => {
         }}
         className="border-0"
       >
-        <div className="d-flex justify-content-center mb-3 mt-5">
+        <div className="d-flex justify-content-center mb-3 mt-5 me-5">
           <svg
             width="150px"
             height="150px"
@@ -112,9 +112,12 @@ const LoginAdmin = () => {
               {errors.password}
             </FormControl.Feedback>
           </FormGroup>
-          <Button type="submit" className="mt-4">
+          <div className="d-flex justify-content-center mt-5">
+
+          <Button type="submit" className="mt-4 btnFormPrenotazione ">
             Login
           </Button>
+          </div>
         </Form>
       </Card>
     </div>
