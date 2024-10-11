@@ -1,0 +1,17 @@
+.bodylogin{
+    height: 100vh;
+    background-color: #1b2c3f;
+    
+}
+
+.textLogin{
+    color: #ffc999;
+}
+
+.contTotTopBar {
+  display: none;
+}
+
+.svgLogin{
+  color: solid white;
+}

@@ -8,6 +8,8 @@ import Prenotazione from './assets/components/React/Prenotazione'
 import HomePage from './assets/components/React/HomePage'
 import LoungeBar from './assets/components/React/LoungeBar'
 import Menu from './assets/components/React/Menu'
+import LoginAdmin from './assets/components/React/LoginAdmin'
+import MenuAdmin from './assets/components/React/MenuAdmin'
 
 function App() {
 
@@ -21,6 +23,12 @@ function App() {
        <Route path="/menu" element={<Menu/>} />
        <Route path="/contatti" element={<Contatti/>} />
        <Route path="/prenotazione" element={<Prenotazione/>} />
+
+
+      {/*---------------  ADMIN PAGES---------------  */}
+
+       <Route path="/loginAdmin" element={<LoginAdmin/>} />
+       <Route path="/menuAdmin" element={<MenuAdmin/>} />
 
        </Routes>
       <Footer/>                                   
