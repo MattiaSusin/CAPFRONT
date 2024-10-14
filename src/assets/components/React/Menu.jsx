@@ -1,10 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import videoSource from "../../Video/Menu.mp4";
-import { Card } from "react-bootstrap";
-import '../Css/Menu.css'
+import { Alert, Card, Col, Container, Spinner } from "react-bootstrap";
+import "../Css/Menu.css";
+
+import useApi from "../../../hooks/Api";
+import { Columns } from "react-bootstrap-icons";
+
 const Menu = () => {
   const [activeMenu, setActiveMenu] = useState("antipasti");
+
+  
+   const { data, loading, error } = useApi(`menu/view/food`);
+  
+
+  if (loading) return <Spinner animation="border" />;
+  if (error) return <Alert variant="danger">{error.message}</Alert>;
 
   const ListMenuContent = () => {
     switch (activeMenu) {
@@ -15,133 +26,25 @@ const Menu = () => {
             <div className="menuSx mt-5 mb-5">
               {/*------------------------------------------ PIATTO 1----------------------------------- */}
               <div className="d-flex align-items-center justify-content-between mb-5">
-                <div className="d-flex">
-                  <div className="imagginePiatto me-3">
-                    <img src="" alt="" />
-                  </div>
-
-                  <Card className="cardCont ">
-                    <Card.Body>
-                      <Card.Title className="titoloColoreContatti">
-                        ANTIPASTO 1
-                      </Card.Title>
-                      <Card.Text>Descrizione Piatto</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="border">
-                  <Card.Text>Prezzo</Card.Text>
-                </div>
-              </div>
-
-              {/*------------------------------------------ PIATTO 2----------------------------------- */}
-
-              <div className="d-flex align-items-center justify-content-between mb-5 ">
-                <div className="d-flex">
-                  <div className="imagginePiatto me-3">
-                    <img src="" alt="" />
-                  </div>
-
-                  <Card className="cardCont ">
-                    <Card.Body>
-                      <Card.Title className="titoloColoreContatti">
-                        ANTIPASTO 2
-                      </Card.Title>
-                      <Card.Text>Descrizione Piatto</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="border">
-                  <Card.Text>Prezzo</Card.Text>
-                </div>
-              </div>
-
-              {/*------------------------------------------ PIATTO 3----------------------------------- */}
-
-              <div className="d-flex align-items-center justify-content-between mb-5">
-                <div className="d-flex">
-                  <div className="imagginePiatto me-3">
-                    <img src="" alt="" />
-                  </div>
-
-                  <Card className="cardCont ">
-                    <Card.Body>
-                      <Card.Title className="titoloColoreContatti">
-                        ANTIPASTO 3
-                      </Card.Title>
-                      <Card.Text>Descrizione Piatto</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="border">
-                  <Card.Text>Prezzo</Card.Text>
-                </div>
-              </div>
-
-              {/*------------------------------------------ PARTE DX----------------------------------- */}
-            </div>
-
-            <div className="menuDx mt-5 mb-5">
-              {/*------------------------------------------ PIATTO 4----------------------------------- */}
-              <div className="d-flex align-items-center justify-content-between mb-5">
-                <div className="d-flex">
-                  <div className="imagginePiatto me-3">
-                    <img src="" alt="" />
-                  </div>
-
-                  <Card className="cardCont ">
-                    <Card.Body>
-                      <Card.Title className="titoloColoreContatti">
-                        ANTIPASTO 4
-                      </Card.Title>
-                      <Card.Text>Descrizione Piatto</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="border">
-                  <Card.Text>Prezzo</Card.Text>
-                </div>
-              </div>
-              {/*------------------------------------------ PIATTO 5----------------------------------- */}
-
-              <div className="d-flex align-items-center justify-content-between mb-5">
-                <div className="d-flex">
-                  <div className="imagginePiatto me-3">
-                    <img src="" alt="" />
-                  </div>
-
-                  <Card className="cardCont ">
-                    <Card.Body>
-                      <Card.Title className="titoloColoreContatti">
-                        ANTIPASTO 5
-                      </Card.Title>
-                      <Card.Text>Descrizione Piatto</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="border">
-                  <Card.Text>Prezzo</Card.Text>
-                </div>
-              </div>
-              {/*------------------------------------------ PIATTO 6----------------------------------- */}
-              <div className="d-flex align-items-center justify-content-between mb-5">
-                <div className="d-flex">
-                  <div className="imagginePiatto me-3">
-                    <img src="" alt="" />
-                  </div>
-
-                  <Card className="cardCont ">
-                    <Card.Body>
-                      <Card.Title className="titoloColoreContatti">
-                        ANTIPASTO 6
-                      </Card.Title>
-                      <Card.Text>Descrizione Piatto</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <div className="border">
-                  <Card.Text>Prezzo</Card.Text>
-                </div>
+                <Container>
+                  <Columns>
+                    {data &&
+                      data.results.map((plate) => (
+                        <Col key={plate.titolo} lg={4} className="mb-4">
+                          <Card>
+                            <Card.Body>
+                              <Card.Title>{plate.titolo}</Card.Title>
+                              <Card.Text>
+                                 {plate.descrizione} cm
+                                <br />
+                                 {plate.price} kg <br />
+                              </Card.Text>
+                            </Card.Body>
+                          </Card>
+                        </Col>
+                      ))}
+                  </Columns>
+                </Container>
               </div>
             </div>
           </div>
@@ -575,7 +478,9 @@ const Menu = () => {
         </video>
         <div className="content-overlay">
           <h1 className="h1LongeMenu">MENU</h1>
-          <p className="pLongeMenu">Vivi un'esperienza culinaria indimenticabile.</p>
+          <p className="pLongeMenu">
+            Vivi un&apos;esperienza culinaria indimenticabile.
+          </p>
         </div>
       </div>
 
