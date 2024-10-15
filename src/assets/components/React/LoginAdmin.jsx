@@ -42,7 +42,7 @@ const LoginAdmin = () => {
   };
 
   return (
-    <div className="bodylogin d-flex justify-content-center align-items-center backgroundLogin">
+    <div className="bodylogin d-flex justify-content-center align-items-center backgroundAdmin">
       <Card
         style={{
           width: "35rem",

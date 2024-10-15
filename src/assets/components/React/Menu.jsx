@@ -1,18 +1,21 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import videoSource from "../../Video/Menu.mp4";
-import { Alert, Card, Col, Container, Spinner } from "react-bootstrap";
+import {
+  Alert,
+  Card,
+  Col,
+  Container,
+  Row,
+  Spinner,
+} from "react-bootstrap";
 import "../Css/Menu.css";
-
 import useApi from "../../../hooks/Api";
-import { Columns } from "react-bootstrap-icons";
 
 const Menu = () => {
   const [activeMenu, setActiveMenu] = useState("antipasti");
 
-  
-   const { data, loading, error } = useApi(`menu/view/food`);
-  
+  const { data, loading, error } = useApi(`menu/view/food`);
 
   if (loading) return <Spinner animation="border" />;
   if (error) return <Alert variant="danger">{error.message}</Alert>;
@@ -22,31 +25,36 @@ const Menu = () => {
       case "antipasti":
         return (
           <div className="contElencoMenu">
-            {/*------------------------------------------ PARTE SX----------------------------------- */}
-            <div className="menuSx mt-5 mb-5">
-              {/*------------------------------------------ PIATTO 1----------------------------------- */}
-              <div className="d-flex align-items-center justify-content-between mb-5">
-                <Container>
-                  <Columns>
-                    {data &&
-                      data.results.map((plate) => (
-                        <Col key={plate.titolo} lg={4} className="mb-4">
-                          <Card>
-                            <Card.Body>
-                              <Card.Title>{plate.titolo}</Card.Title>
-                              <Card.Text>
-                                 {plate.descrizione} cm
-                                <br />
-                                 {plate.price} kg <br />
+            {/*------------------------------------------ PIATTO 1 ----------------------------------- */}
+            <Container fluid className="d-flex contCards">
+              <Row className="contTotCard">
+                {!loading &&
+                  data.content.map((plate) => (
+                    <Col key={plate.titolo} xs={12} md={6} className="mb-4 mt-5">
+                      <Card className="cardCont me-5 ms-4  ">
+                        <Card.Body className="d-flex justify-content-around">
+                          <div className="d-flex">
+                            <img
+                              src={plate.immagine}
+                              alt=""
+                              className="imaginePiatto me-5"
+                            />
+                          <div className="mt-3">
+                            <Card.Title className="titoloColoreContatti">
+                              <strong> {plate.titolo}</strong>
+                            </Card.Title>
+                            <Card.Text className="descrizioneMenu">{plate.descrizione}</Card.Text>
+                          </div>
+                          </div>
+                              <Card.Text className="colorPrice mt-3">
+                                {plate.prezzo} <strong>€</strong>
                               </Card.Text>
-                            </Card.Body>
-                          </Card>
-                        </Col>
-                      ))}
-                  </Columns>
-                </Container>
-              </div>
-            </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+              </Row>
+            </Container>
           </div>
         );
       case "primi":

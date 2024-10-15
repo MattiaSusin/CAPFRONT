@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 
-const Api = (endpoint) => {
+const useApi = (endpoint) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error,setError] = useState(null);
@@ -27,4 +27,4 @@ const Api = (endpoint) => {
     return { data, loading, error };
 }
 
-export default Api;
+export default useApi;

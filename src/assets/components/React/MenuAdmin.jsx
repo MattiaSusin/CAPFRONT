@@ -5,7 +5,7 @@ import '../Css/MenuAdmin.css'
 
 const MenuAdmin = () => {
     return (
-        <div className="d-flex justify-content-center align-items-center contMenuAdmin">
+        <div className="d-flex justify-content-center align-items-center contMenuAdmin backgroundAdmin">
             <NavLink to="/dashboardPrenotazioni" className="nav-link">
             <Button className="btnFormPrenotazione me-5">PRENOTAZIONI</Button>
             </NavLink>
