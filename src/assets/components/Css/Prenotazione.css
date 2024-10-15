@@ -67,6 +67,7 @@
 
     #datelabel{
       width: 30vh;
+      color: aliceblue;
     }
 
     .h1TitoloPrenotazione{
@@ -82,4 +83,16 @@
 
     #btnprenotazione{
       width: 202vh;
+    }
+
+    .react-datepicker-wrapper {
+      .react-datepicker__input-container {
+        input  {
+          background: transparent;
+        }
+      }
+    }
+
+    .border12{
+      display: grid;
     }

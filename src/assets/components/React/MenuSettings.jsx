@@ -3,6 +3,9 @@ import "../Css/MenuSettings.css";
 import {
     Alert,
   Button,
+  Card,
+  Col,
+  Container,
   Form,
   FormControl,
 
@@ -10,6 +13,7 @@ import {
   Modal,
 } from "react-bootstrap";
 import { useState } from "react";
+import { Columns } from "react-bootstrap-icons";
 
 const MenuSettings = () => {
   const [show, setShow] = useState(false);
@@ -76,20 +80,27 @@ const MenuSettings = () => {
                         </p>
                       </>
                     )}
-          <Button variant="primary" onClick={handleShow}>
+          <Button 
+          variant="primary" 
+          onClick={handleShow}>
             NUOVO PIATTO
           </Button>
 
-          <Modal show={show} onHide={handleClose} animation={false} onSubmit={handleSubmit}>
-            <Modal.Header closeButton className="justify-content-center">
+          <Modal 
+          show={show} 
+          onHide={handleClose} 
+          animation={false} 
+          onSubmit={handleSubmit}
+          className="modalPosition textColor">
+            <Modal.Header closeButton>
               <Modal.Title>NUOVO PIATTO</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               {/* --------------TIPO PIATTO---------------- */}
-              <FormLabel className="mt-3">
+              <FormLabel className="mt-3 textColor">
                 Seleziona il tipo di piatto*
               </FormLabel>
-              <Form.Select aria-label="Default select example">
+              <Form.Select aria-label="Default select example" className="selectBg">
                 <option>-- -- --</option>
                 <option value="1">Antipasto</option>
                 <option value="2">Primo</option>
@@ -98,7 +109,7 @@ const MenuSettings = () => {
               </Form.Select>
 
               {/* --------------TITOLO---------------- */}
-              <FormLabel className="mt-4">Titolo piatto*</FormLabel>
+              <FormLabel className="mt-4 textColor">Titolo piatto*</FormLabel>
               <FormControl
                 type="text"
                 name="titolo"
@@ -112,7 +123,7 @@ const MenuSettings = () => {
               </FormControl.Feedback>
 
               {/* --------------DESCRIZIONE---------------- */}
-              <FormLabel className="mt-4">Descrizione piatto*</FormLabel>
+              <FormLabel className="mt-4 textColor">Descrizione piatto*</FormLabel>
               <FormControl
                 type="text"
                 name="descrizione"
@@ -127,7 +138,7 @@ const MenuSettings = () => {
 
               {/* --------------PREZZO---------------- */}
 
-              <Form.Label className="mt-4">Prezzo*</Form.Label>
+              <Form.Label className="mt-4 textColor">Prezzo*</Form.Label>
               <Form.Control
                 type="number"
                 placeholder="Inserisci il prezzo"
@@ -138,9 +149,9 @@ const MenuSettings = () => {
               />
 
 
-            {/* --------------PREZZO---------------- */}
+            {/* --------------IMMAGINE---------------- */}
 
-              <Form.Group controlId="formFile" className="mt-3">
+              <Form.Group controlId="formFile" className="mt-3 textColor">
                 <Form.Label>Seleziona un&apos;immagine</Form.Label>
                 <Form.Control
                   type="file"
@@ -149,14 +160,28 @@ const MenuSettings = () => {
                 />
               </Form.Group>
             </Modal.Body>
-            <Modal.Footer className="d-flex justify-content-center mt-3 mb-3 align-items-center">
-              <Button variant="primary" type="submit" onClick={handleClose}>
+            <Modal.Footer className="d-flex justify-content-center mt-3 mb-3 align-items-center contModal">
+              <Button 
+              variant="primary" 
+              type="submit" 
+              onClick={handleClose}
+              className="btnFormPrenotazione">
                 {" "}
                 GENERA PIATTO
               </Button>
             </Modal.Footer>
           </Modal>
+
         </div>
+          <div className="d-flex justify-content-center mt-5 text-white">
+            <h1>PIATTI PRESENTI</h1>
+            <div>
+            <div className="d-flex align-items-center justify-content-between mb-5">
+                
+              </div>
+            </div>
+
+          </div>
       </div>
     </div>
   );

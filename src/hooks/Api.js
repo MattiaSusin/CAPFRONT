@@ -22,7 +22,7 @@ const Api = (endpoint) => {
         }
 
         fetchData();
-    },[endpoint, error]);
+    },[endpoint]);
 
     return { data, loading, error };
 }

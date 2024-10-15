@@ -5,3 +5,22 @@
 .h1MenuSett{
 font-size: 8vh;
 }
+
+
+
+.modalPosition{
+   margin-top: 20vh;
+}
+
+.modal-content{
+   
+}
+
+.selectBg{
+   background-color: #1b2c3f;
+   color: aliceblue;
+}
+
+.textColor{
+   color: #ffc999;
+}

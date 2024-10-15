@@ -11,6 +11,7 @@ import {
   FormLabel,
 } from "react-bootstrap";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Prenotazione = () => {
   const [formData, setFormData] = useState({
@@ -154,9 +155,9 @@ const Prenotazione = () => {
                         </FormControl.Feedback>
                       </FormGroup>
                     </div>
-                    <div className="d-flex justify-content-around mt-5">
+                    <div className="d-flex justify-content-around mt-5 date-picker-container">
                       {/*------------------ DATA------------------ */}
-                      <FormGroup>
+                      <FormGroup className="border12 ">
                         <FormLabel className="labelForm">Date*</FormLabel>
                         <DatePicker
                           selected={formData.date}
