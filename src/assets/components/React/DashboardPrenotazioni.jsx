@@ -1,10 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
-import { Button, Form, FormControl, InputGroup} from "react-bootstrap";
+import { Alert, Button, Form, FormControl, InputGroup, Spinner} from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import '../Css/DashBoardPrenotazioni.css'
+import useApi from "../../../hooks/Api";
 
 const DashBoardPrenotazioni = () => {
+  const { data, loading, error } = useApi(`prenotazioni`);
+
+  if (loading) return <Spinner animation="border" />;
+  if (error) return <Alert variant="danger">{error.message}</Alert>;
+
     return(
 <div className="contDash">
     <div className=" d-flex justify-content-center align-items-center h-25 ">
@@ -15,7 +21,7 @@ const DashBoardPrenotazioni = () => {
       <Form.Control type="date" className="w-50 dataA"></Form.Control>
       </div>
       <div>
-      <Form className="d-flex w-100">
+      
       <InputGroup>
         <InputGroup.Text id="basic-addon1">
           <Search/>
@@ -26,7 +32,6 @@ const DashBoardPrenotazioni = () => {
           aria-label="Cerca"
         />
       </InputGroup>
-    </Form>
       </div>
     </Form>
     <div className="d-flex justify-content-center align-items-center h-25">
@@ -44,33 +49,23 @@ const DashBoardPrenotazioni = () => {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
+  {Array.isArray(data.content) && data.content.length > 0 ? ( // Controlla se data.content è un array
+              data.content.map((prenotazione, index) => (
+                <tr key={prenotazione.id || index}>
+                  <td>{index + 1}</td>
+                  <td>{prenotazione.nome}</td>
+                  <td>{prenotazione.cognome}</td>
+                  <td>{prenotazione.email}</td>
+                  <td>{prenotazione.numerooperti}</td>
+                  <td>{prenotazione.orario}</td>
+                  <td>{prenotazione.telefono}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="7" className="text-center">Nessun dato disponibile</td>
+              </tr>
+            )}
   </tbody>
 </table>
     </div>
