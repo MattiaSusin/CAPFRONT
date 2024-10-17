@@ -60,10 +60,10 @@ const Contatti = () => {
       </div>
       {/* INIZIO  */}
 
-      <div className="mt-5  cont1FormContatti d-flex justify-content-around">
+      <div className="mt-5  cont1FormContatti ">
         {" "}
         {/* ------------------------------------------ CONTENITORE 1 ----------------------------------------------- */}
-        <div className="contContactContatti mt-5 mb-5 d-flex">
+        <div  className="contContactContatti mt-5 mb-5">
           <div>
 
           <div className="d-flex mb-5">
@@ -174,7 +174,7 @@ const Contatti = () => {
           
               <Col md={6} className=" contFormContatti">
                 <Card className="cardContattiForm border-0">
-                  <Card.Body>
+                  <Card.Body className="cardContatti">
                     <Card.Title className="justify-content-center d-flex mb-5 cardTitle">CONTATTACI</Card.Title>
                     {success && (
                       <>
@@ -264,7 +264,7 @@ const Contatti = () => {
       </div>
 
       {/*MAPS LOCALE*/}
-      <div style={{ width: "100%" }}>
+      <div className="mapsContatti">
         <iframe
           title="Google Map"
           width="100%"
