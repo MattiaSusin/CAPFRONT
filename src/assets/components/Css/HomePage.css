@@ -1,10 +1,12 @@
 .contHomePage{
     align-items: center;
-    height: 135vh;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
+    background-image: url('../../Images/Locale/salarest.avif');
+    background-size: cover;
 }
 
 .imgCarosello{
@@ -43,3 +45,17 @@ height: 50vh;
     font-family: sans-serif;
 }
 
+.imgHome{
+    color: #ffc999;
+}
+
+.h1HomePage{
+    font-size: 8vh;
+    color: antiquewhite;
+    font-family:cursive ;
+}
+
+
+.imgStaffCucina{
+width: 50vh;
+}

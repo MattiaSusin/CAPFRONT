@@ -30,7 +30,6 @@ const MenuSettings = () => {
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
 
-  
   const [formData, setFormData] = useState({
     titolo: "",
     descrizione: "",
@@ -218,6 +217,25 @@ const MenuSettings = () => {
           <div className="d-flex justify-content-center mt-5">
             <h1>PIATTI PRESENTI</h1>
           </div>
+          <Form className=" mt-5 mb-5">
+            <FormLabel className="mt-3 textColor d-flex justify-content-center mb-3 fs-5">
+              Seleziona la tipologia di piatto da trovare
+            </FormLabel>
+            <div className="d-flex justify-content-center">
+              <Form.Select
+                aria-label="Default select example"
+                className="selectBg"
+                id="selectFormGestione"
+                value={formData.tipoPiatto}
+              >
+                <option>-- -- --</option>
+                <option value="1">Antipasto</option>
+                <option value="2">Primo</option>
+                <option value="3">Secondo</option>
+                <option value="4">Dessert</option>
+              </Form.Select>
+            </div>
+          </Form>
 
           <div>
             <div className="d-flex align-items-center justify-content-between mb-5">
@@ -375,7 +393,7 @@ const MenuSettings = () => {
                                   </Modal.Footer>
                                 </Modal>
 
-                                {/* ----------------- MODAL DELETE ----------------- */}
+                                {/* ----------------- DELETE ----------------- */}
                                 <svg
                                   onClick={() => setSmShow(true)}
                                   fill="#ff0000"
@@ -395,22 +413,6 @@ const MenuSettings = () => {
                                     <path d="M496.004 410.821v460.964c0 11.311 9.169 20.48 20.48 20.48s20.48-9.169 20.48-20.48V410.821c0-11.311-9.169-20.48-20.48-20.48s-20.48 9.169-20.48 20.48zm-192.435 1.767l39.936 460.964c.976 11.269 10.903 19.612 22.171 18.636s19.612-10.903 18.636-22.171l-39.936-460.964c-.976-11.269-10.903-19.612-22.171-18.636s-19.612 10.903-18.636 22.171zm377.856-3.535l-39.936 460.964c-.976 11.269 7.367 21.195 18.636 22.171s21.195-7.367 22.171-18.636l39.936-460.964c.976-11.269-7.367-21.195-18.636-22.171s-21.195 7.367-22.171 18.636z"></path>
                                   </g>
                                 </svg>
-
-                                <Modal
-                                  size="sm"
-                                  show={smShoW}
-                                  onHide={() => setSmShow(false)}
-                                  aria-labelledby="example-modal-sizes-title-sm"
-                                >
-                                  <Modal.Header closeButton>
-                                    <Modal.Title id="example-modal-sizes-title-sm">
-                                      Elimina piatto
-                                    </Modal.Title>
-                                  </Modal.Header>
-                                  <Modal.Body className="d-flex justify-content-center">
-                                    <Button>CONFERMA</Button>
-                                  </Modal.Body>
-                                </Modal>
                               </div>
                             </div>
                           </Card.Body>

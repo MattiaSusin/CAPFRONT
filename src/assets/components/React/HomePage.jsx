@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
-import { Carousel, Image } from "react-bootstrap";
-import image from '../../Images/Piatti/piatto menu.jpg'
+import image from "../../Images/Piatti/piatto menu.jpg";
 import "../Css/HomePage.css";
+import videoCucina from '../../Images/Video Ila/Antipasto.mp4'
 
 const HomePage = () => {
   const [index, setIndex] = useState(0);
@@ -14,8 +14,8 @@ const HomePage = () => {
   return (
     <div className="contTotHome">
       {/* CAROSELLO INIZO */}
-      <div className="contHomePage d-flex justify-content-between">
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+      <div className="contHomePage d-flex justify-content-center">
+        {/* <Carousel activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
             <Image
               text="First slide"
@@ -40,7 +40,20 @@ const HomePage = () => {
             />
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
-        </Carousel>
+        </Carousel> */}
+
+        <div className="">
+          <img
+            src="../../../../src/assets/Images/Logo_Footer.jpg.png"
+            alt=""
+            className="imgHome"
+          />
+          {/*  <h1 className="h1HomePage">LOUNGE & RESTUARANT</h1> */}
+          {/*  <Link to="/prenotazione" className="nav-link">
+         <Button className="btnFormPrenotazione">PRENOTA UN TAVOLO</Button>
+         </Link> */}
+        </div>
+        <div></div>
       </div>
 
       {/* CAROSELLO FINE */}
@@ -49,7 +62,13 @@ const HomePage = () => {
           <h1 className="h1Staff">LO STAFF VI ASPETTA </h1>
         </div>
         <div className="d-flex justify-content-around">
-          <img alt="" className=" imgStaff" />
+          <div className="border imgStaffCucina">
+
+        <video className="video-background" autoPlay muted loop>
+          <source src={videoCucina} type="video/mp4" className="border text-white"/>
+          Il tuo browser non supporta il tag video.
+        </video>
+          </div>
           <div className="mt-5">
             <h2 className="h2Staff mb-5">LA CUCINA</h2>
             <p className="text-white  pTextstaff">
@@ -67,7 +86,11 @@ const HomePage = () => {
         </div>
 
         <div className="d-flex justify-content-around">
-          <img alt="" src="../../Images/preparing-refreshing-cocktail-bar.jpg" className=" imgStaff" />
+          <img
+            alt=""
+            src="../../Images/preparing-refreshing-cocktail-bar.jpg"
+            className=" imgStaff"
+          />
           <div className="mt-5">
             <h2 className="h2Staff mb-5 ">LA SALA</h2>
             <p className="text-white  pTextstaff">
@@ -84,9 +107,9 @@ const HomePage = () => {
         <div className="d-flex justify-content-around">
           <img alt="" src="" className=" imgStaff" />
           <immage className="video-background">
-          <source src={image} type="img" />
-          Il tuo browser non supporta il tag video.
-        </immage>
+            <source src={image} type="img" />
+            Il tuo browser non supporta il tag video.
+          </immage>
           <div className="mt-5">
             <h2 className="h2Staff mb-5 ">IL BAR</h2>
             <p className="text-white  pTextstaff">

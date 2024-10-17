@@ -476,6 +476,9 @@ const Menu = () => {
     }
   };
 
+
+  
+
   return (
     <>
       {/* Video di sfondo */}
