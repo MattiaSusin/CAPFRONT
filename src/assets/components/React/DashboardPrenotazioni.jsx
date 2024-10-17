@@ -34,9 +34,9 @@ const DashBoardPrenotazioni = () => {
       </InputGroup>
       </div>
     </Form>
-    <div className="d-flex justify-content-center align-items-center h-25">
+    <div className="d-flex justify-content-center align-items-center h-25 contTab ">
 
-<table className="table table-white table-striped align-items-center w-75">
+<table className="table table-white table-striped align-items-center w-75 ">
   <thead>
     <tr>
       <th scope="col">#</th>

@@ -14,3 +14,9 @@ height: 100vh;
     font-size: 8vh;
     color: #ffc999;
 }
+
+
+@media(max-width:)
+.contTab{
+    padding-left: 40vh;
+}
