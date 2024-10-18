@@ -132,7 +132,7 @@
 
 
 
- /*  @media(max-width:1571px){
+  @media(max-width:1571px){
 
   .contBtnMenu{
 
@@ -144,4 +144,18 @@
     width: 180vh;
   }
 
-} */
+}
+
+@media(max-width:1571px){
+
+  .contBtnMenu{
+
+    width: 190vh;
+
+  }
+
+  .video-background-container{
+    width: 190vh;
+  }
+
+}
