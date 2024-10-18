@@ -14,15 +14,15 @@ const DashBoardPrenotazioni = () => {
     return(
 <div className="contDash">
     <div className=" d-flex justify-content-center align-items-center h-25 ">
-<h1 className="h1Dash">PRENOTAZIONI</h1>
+<h1 className="h1Dash mt-5">PRENOTAZIONI</h1>
     </div>
-    <Form className=" d-flex justify-content-center d-flex w-100">
-      <div className="d-flex justify-content-between w-25">
-      <Form.Control type="date" className="w-50 dataA"></Form.Control>
+<Form className="formDataDash mt-5">
+      <div className="d-flex justify-content-between">
+      <Form.Control type="date" className="dataDash"></Form.Control>
       </div>
       <div>
       
-      <InputGroup>
+      <InputGroup className="searchDash">
         <InputGroup.Text id="basic-addon1">
           <Search/>
         </InputGroup.Text>
@@ -34,7 +34,7 @@ const DashBoardPrenotazioni = () => {
       </InputGroup>
       </div>
     </Form>
-    <div className="d-flex justify-content-center align-items-center h-25 contTab ">
+    <div className="d-flex justify-content-center align-items-center h-25 contTab mt-5 ">
 
 <table className="table table-white table-striped align-items-center w-75 ">
   <thead>

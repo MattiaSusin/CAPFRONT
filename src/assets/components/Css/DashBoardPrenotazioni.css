@@ -1,11 +1,6 @@
 body{
     background-color: #1b2c3f;
 }
-
-.contDash{
-height: 100vh;
-}
- 
 .formDash{
     width: 25%;
 }
@@ -15,8 +10,50 @@ height: 100vh;
     color: #ffc999;
 }
 
+.searchDash{
+    width: 25vh;
+    margin-left: 8vh;
+}
 
-@media(max-width:)
-.contTab{
-    padding-left: 40vh;
+.dataDash{
+    width: 25vh;
+    margin-right: 8vh;
+}
+
+.formDataDash{
+    display: flex !important;
+    justify-content: center;
+}
+
+
+
+@media(max-width:1137px){
+
+    .searchDash{
+        width: 25vh;
+        margin-left: 2vh;
+        margin-right: 3vh;
+    }
+
+    .dataDash{
+        width: 25vh;
+        margin-right: 2vh;
+        margin-left: 1.5vh;
+    }
+}
+@media(max-width:507px){
+    .formDataDash{
+        margin-left: 5vh;
+        margin-right: vh;
+        width: 50vh ;
+    }
+
+    .h1Dash{
+        font-size: 6vh;
+    }
+
+    .contDash{
+        margin-top: 10vh;
+   
+    }
 }

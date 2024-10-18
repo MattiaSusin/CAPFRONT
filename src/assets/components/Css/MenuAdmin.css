@@ -1,4 +1,82 @@
-.contMenuAdmin{
-    height: 100vh;
-    background-color: #1b2c3f;
+.contMenuAdmin {
+  height: 100vh;
+  background-color: #1b2c3f;
 }
+
+.btnExit {
+  color: #ff0000;
+  font-size: 20px;
+  padding: 15px 30px;
+  border: 0.1px solid;
+  border-color: #ff0000;
+  text-decoration: none;
+  background-color: transparent;
+  width: 35vh;
+}
+
+.btnExit:hover {
+  background-image: linear-gradient(to bottom, #d13131, #d14949);
+  color: #ff0000;
+}
+
+.contRiga1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+}
+
+.h1MenuAdmin {
+  color: #ffc999;
+  font-size: 10vh;
+  margin-top: 15vh;
+  font-family: cursive;
+}
+
+
+.btnFormMenuAdmin{
+    color:  #ffc999;
+      font-size: 20px;
+      padding: 15px 30px;
+      border: 0.1px solid;
+      border-color: #ffc999;
+      text-decoration: none;
+      background-color: transparent;
+      width: 35vh;
+}
+
+.btnFormMenuAdmin:hover{
+    background-image: linear-gradient(to bottom, #ffc999, #ffebdb);
+      color: #f58625;
+}
+
+@media (max-width: 933px) {
+  .h1MenuAdmin {
+    font-size: 8vh;
+    text-align: center;
+  }
+  
+}
+
+@media (max-width: 933px) {
+    .h1MenuAdmin {
+      font-size: 8vh;
+      text-align: center;
+    }
+  
+    .contRiga1{
+
+        margin-top: 10vh;
+        display: block;
+        text-align: center;
+        height: 24vh;
+    }
+
+
+    .btnFormMenuAdmin{
+
+    }
+
+
+    
+  }
