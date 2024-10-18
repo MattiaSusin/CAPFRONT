@@ -35,7 +35,7 @@ function App() {
        <Route path="/menuSettings" element={<MenuSettings/>} />
 
        </Routes>
-      <Footer/>                                   
+      {/* <Footer/>  */}                                  
    </BrowserRouter>
   )
 }

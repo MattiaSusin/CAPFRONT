@@ -25,3 +25,32 @@ cursor: pointer;
 #selectFormGestione{
    width: 20vh;
 }
+
+@media(max-width:1600px){
+
+   .contTotCard{
+      width: 150vh;
+      display: flex;
+      justify-content: center;
+   }
+
+   .cardContExt{
+   padding-right:50vh;
+   margin-right: 5vh;
+   }
+
+   .contmobile{
+      width: 182vh;
+   }
+   .contMobileInt{
+      width: 170vh;
+   }
+}
+
+
+@media(max-width:700px){
+
+   .contMobileInt{
+      width: 170vh;
+   }
+}

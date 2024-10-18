@@ -98,8 +98,8 @@ const MenuSettings = () => {
   };
 
   return (
-    <div className="contMenuSettings mt-5">
-      <div>
+    <div className="contMenuSettings mt-5 ">
+      <div className="contMobileInt">
         <div className="d-flex justify-content-center">
           <h1 className="text-white h1MenuSett">GESTIONE PIATTI</h1>
         </div>
@@ -213,7 +213,7 @@ const MenuSettings = () => {
           </Modal>
         </div>
 
-        <div className=" mt-5 text-white ">
+        <div className=" mt-5 text-white contCarte ">
           <div className="d-flex justify-content-center mt-5">
             <h1>PIATTI PRESENTI</h1>
           </div>
@@ -237,8 +237,8 @@ const MenuSettings = () => {
             </div>
           </Form>
 
-          <div>
-            <div className="d-flex align-items-center justify-content-between mb-5">
+          <div className="cardContExt">
+            <div className="d-flex align-items-center justify-content-between mb-5 contmobile">
               <Container fluid className="d-flex contCards">
                 <Row className="contTotCard">
                   {!loading &&
@@ -250,7 +250,7 @@ const MenuSettings = () => {
                         className="mb-4 mt-5"
                       >
                         <Card className="cardCont me-5 ms-4">
-                          <Card.Body className="d-flex justify-content-around">
+                          <Card.Body className="d-flex justify-content-around cardSett">
                             <div className="d-flex ">
                               <img
                                 src={plate.immagine}

@@ -24,7 +24,7 @@ const Menu = () => {
     switch (activeMenu) {
       case "antipasti":
         return (
-          <div className="contElencoMenu">
+          <div className="contElencoMenu contmobile ">
             {/*------------------------------------------ PIATTO 1 ----------------------------------- */}
             <Container fluid className="d-flex contCards">
               <Row className="contTotCard">
@@ -423,7 +423,7 @@ const Menu = () => {
                     </Card.Body>
                   </Card>
                 </div>
-                <div className="border">
+                <div>
                   <Card.Text>Prezzo</Card.Text>
                 </div>
               </div>
