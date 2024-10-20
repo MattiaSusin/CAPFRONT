@@ -6,7 +6,7 @@ const useLogin = () => {
     const [error, setError] = useState(null);
     const [response, setResponse] = useState(null);
 
-    const login = async (email, password) => {
+    const login = async (email, password) => { /* piatto */
 
         setLoading(true);
         setError(null);
@@ -17,8 +17,9 @@ const useLogin = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',  
+                    /* Autorizzazione con item delete*/
                 }, 
-                body: JSON.stringify({email, password}), 
+                body: JSON.stringify({email, password}),
             });
             if (!res.ok){
                 throw new Error("Utente non registrato");

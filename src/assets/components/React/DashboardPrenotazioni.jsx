@@ -1,15 +1,27 @@
 import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
 import { Alert, Button, Form, FormControl, InputGroup, Spinner} from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../Css/DashBoardPrenotazioni.css'
 import useApi from "../../../hooks/Api";
+import Cookies from "js-cookie";
 
 const DashBoardPrenotazioni = () => {
-  const { data, loading, error } = useApi(`prenotazioni`);
+  const tokenLogin = Cookies.get('accessToken');
+  const { data, loading, error } = useApi( `prenotazioni`, {}, tokenLogin );
+
+  useEffect(() => {
+
+
+
+
+  }, []);
+
 
   if (loading) return <Spinner animation="border" />;
   if (error) return <Alert variant="danger">{error.message}</Alert>;
+
 
     return(
 <div className="contDash">
@@ -55,7 +67,7 @@ const DashBoardPrenotazioni = () => {
                   <td>{prenotazione.nome}</td>
                   <td>{prenotazione.cognome}</td>
                   <td>{prenotazione.email}</td>
-                  <td>{prenotazione.numerooperti}</td>
+                  <td>{prenotazione.numeroCoperti}</td>
                   <td>{prenotazione.orario}</td>
                   <td>{prenotazione.telefono}</td>
                 </tr>

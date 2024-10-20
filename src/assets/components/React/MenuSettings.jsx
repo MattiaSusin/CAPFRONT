@@ -15,14 +15,17 @@ import {
 } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import useApi from "../../../hooks/Api";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import useDeleteItem from "../../../hooks/useDeleteItem";
 
 const MenuSettings = () => {
+
   //! STATI DEI DUE MODALI
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
 
   //! GESTIONE MODALE NR. 1
-
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
 
@@ -38,6 +41,7 @@ const MenuSettings = () => {
     tipoPiatto: "",
   });
 
+
   const [showDelete, setShowDelete] = useState(false);
 
   const handleClose = () => setShowDelete(false);
@@ -47,23 +51,34 @@ const MenuSettings = () => {
     console.log("Form data updated:", formData);
   }, [formData]);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+   const tokenLogin = Cookies.get('accessToken');
+   if(!tokenLogin){
+    navigate('/loginAdmin');
+   }
+  }, [navigate]);
+
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const { data, loading, error } = useApi(`menu/view/food`);
+  const {deleteItem, loading: deleteLoading, error: deleteError, response: deleteResponse} = useDeleteItem();
 
+  
   if (loading) return <Spinner animation="border" />;
   if (error) return <Alert variant="danger">{error.message}</Alert>;
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  
   const handleFileChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  
   const validate = () => {
     let errors = {};
     if (!formData.titolo) errors.titolo = "Il titolo è da inserire";
@@ -73,10 +88,10 @@ const MenuSettings = () => {
     if (!formData.image) errors.image = "Il image è da inserire";
     if (!formData.tipoPiatto)
       errors.tipoPiatto = "Il Tipo del piatto è da inserire";
-
+    
     return errors;
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const validateErrors = validate();
@@ -88,7 +103,7 @@ const MenuSettings = () => {
       setSuccess(false);
     }
   };
-
+  
   const handleEdit = (plate) => {
     setFormData({
       titolo: plate.titolo,
@@ -97,10 +112,20 @@ const MenuSettings = () => {
       imaggine: plate.immagine,
       tipoPiatto: plate.tipoPiatto,
     });
-
+    
     handleShow2();
   };
 
+  const handleDelete = async (id,titolo) => {
+    await deleteItem(id);
+      const titoloMessage = `Il piatto ${titolo} è stato eliminato con successo`;
+      alert(titoloMessage);
+      /* handleClose(); */
+      window.location.reload();
+
+  };
+
+  
   return (
     <div className="contMenuSettings mt-5 ">
       <div className="contMobileInt">
@@ -210,6 +235,7 @@ const MenuSettings = () => {
                 type="submit"
                 onClick={handleClose1}
                 className="btnFormPrenotazione"
+                /*  */
               >
                 {" "}
                 GENERA PIATTO
@@ -316,6 +342,8 @@ const MenuSettings = () => {
               </Button>
             </Modal.Footer>
           </Modal>
+
+
           {/* MODALE DELETE */}
 
           <Modal show={showDelete} onHide={handleClose}>
@@ -324,7 +352,11 @@ const MenuSettings = () => {
             </Modal.Header>
             <Modal.Body>SEI SICURO?</Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button 
+              variant="secondary" 
+              onClick={() => handleDelete()}
+              
+              >
                 SI,ELIMINA
               </Button>
               <Button variant="primary" onClick={handleClose}>
@@ -412,7 +444,7 @@ const MenuSettings = () => {
 
                                 {/* ----------------- DELETE ----------------- */}
                                 <svg
-                                  onClick={() => handleShowDelete()}
+                                  onClick={() => handleDelete(plate.id, plate.titolo)}
                                   fill="#ff0000"
                                   viewBox="0 0 1024 1024"
                                   xmlns="http://www.w3.org/2000/svg"
