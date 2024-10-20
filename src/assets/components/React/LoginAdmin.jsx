@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../Css/LoginAdmin.css";
 import { useNavigate } from "react-router-dom";
 import useLogin from "../../../hooks/useLogin";
+import Cookies from "js-cookie";
 
 const LoginAdmin = () => {
 
@@ -44,7 +45,8 @@ const LoginAdmin = () => {
   };
 
   useEffect(() => {
-    if(response){
+    const tokenLogin = Cookies.get('accessToken');
+    if(response || tokenLogin){
       console.log('Login effettuato con seccesso', response);
       navigate('/menuAdmin');
     }

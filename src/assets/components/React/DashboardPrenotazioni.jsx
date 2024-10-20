@@ -21,7 +21,6 @@ const DashBoardPrenotazioni = () => {
       <Form.Control type="date" className="dataDash"></Form.Control>
       </div>
       <div>
-      
       <InputGroup className="searchDash">
         <InputGroup.Text id="basic-addon1">
           <Search/>

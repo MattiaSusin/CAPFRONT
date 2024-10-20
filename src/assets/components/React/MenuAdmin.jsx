@@ -2,8 +2,15 @@ import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
 import { Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "../Css/MenuAdmin.css";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const MenuAdmin = () => {
+  const navigate = useNavigate();
+  const handleAdmninLogout = () => {
+   Cookies.remove('accessToken');
+   navigate('/loginAdmin');
+  } 
   return (
     <div className="contMenuAdmin backgroundAdmin">
         <div className="d-flex justify-content-center align-items-center h-25 contH1Admin"  >
@@ -19,9 +26,9 @@ const MenuAdmin = () => {
         <NavLink to="/menuSettings" className="nav-link">
           <Button className="btnFormMenuAdmin me-5">MENU</Button>
         </NavLink>
-        <NavLink to="/loginAdmin">
-          <Button className="btnExit">ESCI </Button>
-        </NavLink>
+          <Button 
+          className="btnExit" 
+          onClick={handleAdmninLogout}>ESCI</Button>
       </div>
     </div>
   );
