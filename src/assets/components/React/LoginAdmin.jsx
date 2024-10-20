@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Button,
   Card,
@@ -9,10 +9,15 @@ import {
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Css/LoginAdmin.css";
+import { useNavigate } from "react-router-dom";
+import useLogin from "../../../hooks/useLogin";
 
 const LoginAdmin = () => {
+
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+  const {login, loading, error, response } = useLogin();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,20 +31,24 @@ const LoginAdmin = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      // Submit form data to another page to display user data
-      const formData = new FormData();
-      formData.append("email", formData.email);
-      formData.append("password", formData);
+      
+      await login(formData.email, formData.password);
 
-      console.log("Form submitted", formData);
     } else {
       setErrors(validationErrors);
     }
   };
+
+  useEffect(() => {
+    if(response){
+      console.log('Login effettuato con seccesso', response);
+      navigate('/menuAdmin');
+    }
+  }, [response, navigate]);
 
   return (
     <div className="bodylogin d-flex justify-content-center align-items-center backgroundAdmin">
@@ -114,10 +123,18 @@ const LoginAdmin = () => {
           </FormGroup>
           <div className="d-flex justify-content-center mt-5">
 
-          <Button type="submit" className="mt-4 btnFormPrenotazione ">
-            Login
+          
+          <Button 
+          type="submit" 
+          className="mt-4 btnFormPrenotazione "
+          disabled={loading}
+          >
+            {loading ? 'Loading...' : 'Accedi'}
           </Button>
           </div>
+          {error && <div className="error">
+            {error}
+          </div> }
         </Form>
       </Card>
     </div>

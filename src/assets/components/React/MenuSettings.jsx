@@ -38,7 +38,10 @@ const MenuSettings = () => {
     tipoPiatto: "",
   });
 
-  const [smShoW, setSmShow] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+
+  const handleClose = () => setShowDelete(false);
+  const handleShowDelete = () => setShowDelete(true);
 
   useEffect(() => {
     console.log("Form data updated:", formData);
@@ -94,6 +97,7 @@ const MenuSettings = () => {
       imaggine: plate.immagine,
       tipoPiatto: plate.tipoPiatto,
     });
+
     handleShow2();
   };
 
@@ -135,6 +139,7 @@ const MenuSettings = () => {
                 className="selectBg"
                 value={formData.tipoPiatto}
                 isInvalid={!!errors.tipoPiatto}
+                onChange={handleChange}
               >
                 <option>-- -- --</option>
                 <option value="1">Antipasto</option>
@@ -211,6 +216,122 @@ const MenuSettings = () => {
               </Button>
             </Modal.Footer>
           </Modal>
+
+          {/* MODALE UPDATE*/}
+
+          <Modal
+            show={show2}
+            onHide={handleClose2}
+            animation={false}
+            onSubmit={handleSubmit}
+            className="modalPosition textColor"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>NUOVO PIATTO</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {/* --------------TIPO PIATTO---------------- */}
+              <FormLabel className="mt-3 textColor">
+                Seleziona il tipo di piatto*
+              </FormLabel>
+              <Form.Select
+                aria-label="Default select example"
+                className="selectBg"
+                value={formData.tipoPiatto}
+                isInvalid={!!errors.tipoPiatto}
+                onChange={handleChange}
+              >
+                <option>-- -- --</option>
+                <option value="1">Antipasto</option>
+                <option value="2">Primo</option>
+                <option value="3">Secondo</option>
+                <option value="4">Dessert</option>
+              </Form.Select>
+              <FormControl.Feedback type="invalid">
+                {errors.tipoPiatto}
+              </FormControl.Feedback>
+
+              {/* --------------TITOLO---------------- */}
+              <FormLabel className="mt-4 textColor">Titolo piatto*</FormLabel>
+              <FormControl
+                type="text"
+                name="titolo"
+                value={formData.titolo}
+                onChange={handleChange}
+                isInvalid={!!errors.titolo}
+                className=""
+              />
+              <FormControl.Feedback type="invalid">
+                {/* {errors.titolo} */}
+              </FormControl.Feedback>
+
+              {/* --------------DESCRIZIONE---------------- */}
+              <FormLabel className="mt-4 textColor">
+                Descrizione piatto*
+              </FormLabel>
+              <FormControl
+                type="text"
+                name="descrizione"
+                value={formData.descrizione}
+                onChange={handleChange}
+                isInvalid={!!errors.descrizione}
+                className=""
+              />
+              <FormControl.Feedback type="invalid">
+                {/* {errors.descrizione} */}
+              </FormControl.Feedback>
+
+              {/* --------------PREZZO---------------- */}
+
+              <Form.Label className="mt-4 textColor">Prezzo*</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="Inserisci il prezzo"
+                value={name}
+                onChange={handleChange}
+                min="0"
+                step="0.01"
+              />
+
+              {/* --------------IMMAGINE---------------- */}
+
+              <Form.Group controlId="formFile" className="mt-3 textColor">
+                <Form.Label>Seleziona un&apos;immagine</Form.Label>
+                <Form.Control
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                />
+              </Form.Group>
+            </Modal.Body>
+            <Modal.Footer className="d-flex justify-content-center mt-3 mb-3 align-items-center contModal">
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={handleClose1}
+                className="btnFormPrenotazione"
+              >
+                {" "}
+                GENERA PIATTO
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          {/* MODALE DELETE */}
+
+          <Modal show={showDelete} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>CANCELLA ELEMENTO</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>SEI SICURO?</Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                SI,ELIMINA
+              </Button>
+              <Button variant="primary" onClick={handleClose}>
+                NO,ANNULLA
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
 
         <div className=" mt-5 text-white contCarte ">
@@ -227,6 +348,7 @@ const MenuSettings = () => {
                 className="selectBg"
                 id="selectFormGestione"
                 value={formData.tipoPiatto}
+                onChange={handleChange}
               >
                 <option>-- -- --</option>
                 <option value="1">Antipasto</option>
@@ -287,115 +409,10 @@ const MenuSettings = () => {
                                     d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"
                                   />
                                 </svg>
-                                <Modal
-                                  show={show2}
-                                  onHide={handleClose2}
-                                  animation={false}
-                                  onSubmit={handleSubmit}
-                                  className="modalPosition textColor"
-                                >
-                                  <Modal.Header closeButton>
-                                    <Modal.Title>NUOVO PIATTO</Modal.Title>
-                                  </Modal.Header>
-                                  <Modal.Body>
-                                    {/* --------------TIPO PIATTO---------------- */}
-                                    <FormLabel className="mt-3 textColor">
-                                      Seleziona il tipo di piatto*
-                                    </FormLabel>
-                                    <Form.Select
-                                      aria-label="Default select example"
-                                      className="selectBg"
-                                      value={formData.tipoPiatto}
-                                      isInvalid={!!errors.tipoPiatto}
-                                    >
-                                      <option>-- -- --</option>
-                                      <option value="1">Antipasto</option>
-                                      <option value="2">Primo</option>
-                                      <option value="3">Secondo</option>
-                                      <option value="4">Dessert</option>
-                                    </Form.Select>
-                                    <FormControl.Feedback type="invalid">
-                                      {errors.tipoPiatto}
-                                    </FormControl.Feedback>
-
-                                    {/* --------------TITOLO---------------- */}
-                                    <FormLabel className="mt-4 textColor">
-                                      Titolo piatto*
-                                    </FormLabel>
-                                    <FormControl
-                                      type="text"
-                                      name="titolo"
-                                      value={formData.titolo}
-                                      onChange={handleChange}
-                                      isInvalid={!!errors.titolo}
-                                      className=""
-                                    />
-                                    <FormControl.Feedback type="invalid">
-                                      {/* {errors.titolo} */}
-                                    </FormControl.Feedback>
-
-                                    {/* --------------DESCRIZIONE---------------- */}
-                                    <FormLabel className="mt-4 textColor">
-                                      Descrizione piatto*
-                                    </FormLabel>
-                                    <FormControl
-                                      type="text"
-                                      name="descrizione"
-                                      value={formData.descrizione}
-                                      onChange={handleChange}
-                                      isInvalid={!!errors.descrizione}
-                                      className=""
-                                    />
-                                    <FormControl.Feedback type="invalid">
-                                      {/* {errors.descrizione} */}
-                                    </FormControl.Feedback>
-
-                                    {/* --------------PREZZO---------------- */}
-
-                                    <Form.Label className="mt-4 textColor">
-                                      Prezzo*
-                                    </Form.Label>
-                                    <Form.Control
-                                      type="number"
-                                      placeholder="Inserisci il prezzo"
-                                      value={name}
-                                      onChange={handleChange}
-                                      min="0"
-                                      step="0.01"
-                                    />
-
-                                    {/* --------------IMMAGINE---------------- */}
-
-                                    <Form.Group
-                                      controlId="formFile"
-                                      className="mt-3 textColor"
-                                    >
-                                      <Form.Label>
-                                        Seleziona un&apos;immagine
-                                      </Form.Label>
-                                      <Form.Control
-                                        type="file"
-                                        accept="image/*"
-                                        onChange={handleFileChange}
-                                      />
-                                    </Form.Group>
-                                  </Modal.Body>
-                                  <Modal.Footer className="d-flex justify-content-center mt-3 mb-3 align-items-center contModal">
-                                    <Button
-                                      variant="primary"
-                                      type="submit"
-                                      onClick={handleClose1}
-                                      className="btnFormPrenotazione"
-                                    >
-                                      {" "}
-                                      GENERA PIATTO
-                                    </Button>
-                                  </Modal.Footer>
-                                </Modal>
 
                                 {/* ----------------- DELETE ----------------- */}
                                 <svg
-                                  onClick={() => setSmShow(true)}
+                                  onClick={() => handleShowDelete()}
                                   fill="#ff0000"
                                   viewBox="0 0 1024 1024"
                                   xmlns="http://www.w3.org/2000/svg"

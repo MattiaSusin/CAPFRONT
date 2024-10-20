@@ -19,9 +19,9 @@ const MenuAdmin = () => {
         <NavLink to="/menuSettings" className="nav-link">
           <Button className="btnFormMenuAdmin me-5">MENU</Button>
         </NavLink>
-        <NavLink to="/loginAdmin" >
+        <NavLink to="/loginAdmin">
           <Button className="btnExit">ESCI </Button>
-        </NavLink> 
+        </NavLink>
       </div>
     </div>
   );
