@@ -29,7 +29,7 @@ const HomePage = () => {
           <div className="imgStaffCucina">
             <img src={chef} alt="" className="imgHomePage rounded" />
           </div>
-          <Card className="border-0">
+          <Card className="border-0 cardTextHomePage">
             <Card.Body className="bodyCardHome">
               <Card.Title className="h2Staff mb-5">LA CUCINA</Card.Title>
 
@@ -50,7 +50,7 @@ const HomePage = () => {
           <div className="imgStaffCucina">
             <img src={camerieri} alt="" className="imgHomePage rounded" />
           </div>
-          <Card className="border-0">
+          <Card className="border-0 cardTextHomePage">
             <Card.Body className="bodyCardHome">
               <Card.Title className="h2Staff mb-5">LA SALA</Card.Title>
 
@@ -71,7 +71,7 @@ const HomePage = () => {
             <img src={baristi} alt="" className="rounded imgHomePage"></img>
           </div>
 
-          <Card className="border-0">
+          <Card className="border-0 cardTextHomePage">
             <Card.Body className="bodyCardHome">
               <Card.Title className="h2Staff mb-5">IL BAR</Card.Title>
 

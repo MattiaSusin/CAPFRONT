@@ -77,3 +77,62 @@ margin-top: 8vh;
     justify-content: e;
 }
 
+
+@media(max-width:927px){
+    .contHomePage{
+        width: 102.5vh;
+    }
+
+    .imgHome{
+        width:40vh;
+        height: ;
+    }    
+
+    .contCardHomePage{
+        margin-left: 2vh;
+        margin-right: 2vh;
+
+    }
+}
+
+@media(max-width:855px){
+    .titleStaff{
+        text-align: center;
+        width: 102vh;
+    }
+}
+
+@media(max-width:505px){
+
+    .contCardHomePage{
+    text-align: center;
+    justify-content: center;
+    display: block !important;
+    
+    width: 100vh;
+    }
+
+    .imgStaffCucina{
+        text-align: center;
+        
+        width: 100vh;
+    }
+
+    .cardTextHomePage{
+        display: flex;
+        justify-content: center;
+        width: 100vh;
+    }
+
+    .bodyCardHome{
+        width: 100vh;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .pTextstaff{
+        width: 90vh;
+        text-align: center;
+    }
+    
+}
