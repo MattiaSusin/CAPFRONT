@@ -3,7 +3,6 @@ import camerieri from "../../../../src/assets/Images/Piatti/Camerieri.jpg";
 import chef from "../../../../src/assets/Images/Piatti/Chef.webp";
 import baristi from "../../../../src/assets/Images/Piatti/Baristi.jpg";
 import "../Css/HomePage.css";
-import videoCucina from "../../Images/Video Ila/Antipasto.mp4";
 import { Card } from "react-bootstrap";
 
 const HomePage = () => {
