@@ -1,5 +1,7 @@
 import {Container} from "react-bootstrap"
 import { NavLink } from "react-router-dom"
+import "bootstrap/dist/css/bootstrap.min.css";
+import '../Css/TopBar.css'
 
 const TopBar = () => {
     return(

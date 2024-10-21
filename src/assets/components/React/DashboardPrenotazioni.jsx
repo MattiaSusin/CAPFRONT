@@ -86,7 +86,7 @@ const DashBoardPrenotazioni = () => {
     {/* TABELLA VERTICALE */}
 
     <div className="d-flex justify-content-center align-items-center h-25 contTab mt-5 tableVertical">
-  <div className="row w-75 ms-5 me-5">
+  <div className="row w-75 ms-5 me-5 d-flex justifycontent-center">
     {Array.isArray(data.content) && data.content.length > 0 ? (
       data.content.map((prenotazione, index) => (
         <div className="col-md-4" key={prenotazione.id || index}>

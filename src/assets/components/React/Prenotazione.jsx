@@ -1,4 +1,5 @@
 import { Alert } from "bootstrap";
+import '../Css/Prenotazione.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import {

@@ -16,7 +16,7 @@ import {
 import { useEffect, useState } from "react";
 import useApi from "../../../hooks/Api";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useDeleteItem from "../../../hooks/useDeleteItem";
 
 const MenuSettings = () => {
@@ -474,6 +474,14 @@ const MenuSettings = () => {
           </div>
         </div>
       </div>
+      <div className="d-flex justify-content-center  mt-5">
+      <Link to="/menuAdmin">
+    <Button className="btnFormPrenotazione mb-5">
+      TORNA ALLA HOME
+    </Button>
+      </Link>
+
+    </div>
     </div>
   );
 };

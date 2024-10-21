@@ -60,9 +60,13 @@ body{
 
     .contDash{
         margin-top: 10vh;
+        width: 102vh;
     }
-
-   
+.formDataDash{
+    width: 100vh;
+}
+.tableVertical{
+    width: 102vh;
 }
 
 @media(max-width:652px){
@@ -81,4 +85,14 @@ body{
     .tableVertical{
         display: none !important;
     }
+}
+
+.tableVertical{
+    width: 102vh;
+    display: flex;
+    justify-content: center;
+}
+
+.contDash {
+    width: 102vh;
 }

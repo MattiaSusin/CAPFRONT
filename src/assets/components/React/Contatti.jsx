@@ -1,3 +1,4 @@
+import '../Css/Contatti.css'
 import {
   Alert,
   Button,
@@ -49,13 +50,13 @@ const Contatti = () => {
   };
 
   return (
-    <div className="contFormPrenotazione">
+    <div className="contFormContatti">
       {/* IMG INIZIALE */}
-      <div className="">
+      <div className="contImgContatti">
         <img
           src="../../../src/assets/Images/Prenotazione.jpg"
           alt=""
-          className="imgPrenotazione"
+          className="imgContatti"
         />
       </div>
       {/* INIZIO  */}
@@ -64,7 +65,7 @@ const Contatti = () => {
         {" "}
         {/* ------------------------------------------ CONTENITORE 1 ----------------------------------------------- */}
         <div  className="contContactContatti mt-5 mb-5">
-          <div>
+          <div className=''>
 
           <div className="d-flex mb-5">
             <div>

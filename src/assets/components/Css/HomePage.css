@@ -82,11 +82,9 @@ margin-top: 8vh;
     .contHomePage{
         width: 102.5vh;
     }
-
     .imgHome{
         width:40vh;
     }    
-
     .contCardHomePage{
         margin-left: 2vh;
         margin-right: 2vh;
@@ -107,31 +105,24 @@ margin-top: 8vh;
     text-align: center;
     justify-content: center;
     display: block !important;
-    
     width: 100vh;
     }
-
     .imgStaffCucina{
         text-align: center;
-        
         width: 100vh;
     }
-
     .cardTextHomePage{
         display: flex;
         justify-content: center;
         width: 100vh;
     }
-
     .bodyCardHome{
         width: 100vh;
         text-align: center;
         justify-content: center;
     }
-
     .pTextstaff{
         width: 90vh;
         text-align: center;
     }
-    
 }
