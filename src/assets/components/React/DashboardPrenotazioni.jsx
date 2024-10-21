@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
 import { Alert, Button, Form, FormControl, InputGroup, Spinner} from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../Css/DashBoardPrenotazioni.css'
 import useApi from "../../../hooks/Api";
@@ -45,9 +45,11 @@ const DashBoardPrenotazioni = () => {
       </InputGroup>
       </div>
     </Form>
-    <div className="d-flex justify-content-center align-items-center h-25 contTab mt-5 ">
+    <div className="d-flex justify-content-center align-items-center h-25 contTab mt-5">
 
-<table className="table table-white table-striped align-items-center w-75 ">
+      {/* TABELLA ORIZZONTALE */}
+
+<table className="table table-white table-striped align-items-center w-75 ms-5 me-5 tableOrrizonta">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -80,9 +82,62 @@ const DashBoardPrenotazioni = () => {
   </tbody>
 </table>
     </div>
+
+    {/* TABELLA VERTICALE */}
+
+    <div className="d-flex justify-content-center align-items-center h-25 contTab mt-5 tableVertical">
+  <div className="row w-75 ms-5 me-5">
+    {Array.isArray(data.content) && data.content.length > 0 ? (
+      data.content.map((prenotazione, index) => (
+        <div className="col-md-4" key={prenotazione.id || index}>
+          <table className="table table-white table-striped align-items-center">
+            <thead>
+              <tr key={prenotazione.id || index}>
+                <th scope="col">#</th>
+                <th scope="col">{index + 1}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="intDash">Nome</td>
+                <td>{prenotazione.nome}</td>
+              </tr>
+              <tr>
+                <td className="intDash">Cognome</td>
+                <td>{prenotazione.cognome}</td>
+              </tr>
+              <tr>
+                <td className="intDash">Email</td>
+                <td>{prenotazione.email}</td>
+              </tr>
+              <tr>
+                <td className="intDash">Coperti</td>
+                <td>{prenotazione.numeroCoperti}</td>
+              </tr>
+              <tr>
+                <td className="intDash">Orario</td>
+                <td>{prenotazione.orario}</td>
+              </tr>
+              <tr>
+                <td className="intDash">Telefono</td>
+                <td>{prenotazione.telefono}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      ))
+    ) : (
+      <div className="col-12">
+        <p className="text-center">Nessun dato disponibile</p>
+      </div>
+    )}
+  </div>
+</div>
+
+
     <div className="d-flex justify-content-center  mt-5">
       <Link to="/menuAdmin">
-    <Button className="btnFormPrenotazione">
+    <Button className="btnFormPrenotazione mb-5">
       TORNA ALLA HOME
     </Button>
       </Link>

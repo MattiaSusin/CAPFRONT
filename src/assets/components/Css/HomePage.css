@@ -59,3 +59,21 @@ height: 50vh;
 .imgStaffCucina{
 width: 50vh;
 }
+
+.bodyCardHome{
+    background-color: #1b2c3f;
+    width: 53vh;
+    border: none;
+}
+
+.contCardHomePage{
+margin-top: 8vh;
+}
+
+.imgHomePage{
+    width: 45vh;
+    height: 35vh;
+    object-fit: cover;
+    justify-content: e;
+}
+

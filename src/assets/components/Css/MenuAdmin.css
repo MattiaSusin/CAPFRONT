@@ -65,18 +65,59 @@
     }
   
     .contRiga1{
-
         margin-top: 10vh;
         display: block;
         text-align: center;
         height: 24vh;
     }
+  }
 
+  @media (max-width: 1378px) {
+    .btnAdmin{
+      width: 25vh;
+    }
+  }
 
-    .btnFormMenuAdmin{
+  @media (max-width: 1021px) {
+    .btnAdmin{
+      width: 24vh;
+    }
+  }
 
+  @media(max-width:983px){
+    .contRiga1{
+      display: block;
+      text-align: center;
     }
 
+    .btnExit{
+      margin-right:5.5vh;
+    }
 
-    
+    .btnAdmin{
+      margin-top: 3vh;
+    }
+  }
+
+  @media(max-width:461px){
+
+    .h1MenuAdmin{
+      font-size: 6vh;
+    }
+
+    .btnAdmin{
+      width: 30vh;
+      margin-left: 8vh;
+    }
+
+    .btnExit{
+      margin-right: 7vh;
+    }
+  }
+
+  @media(max-width:385px){
+    .contH1Admin{
+      text-align: center;
+      margin-left: 3vh;
+    }
   }
