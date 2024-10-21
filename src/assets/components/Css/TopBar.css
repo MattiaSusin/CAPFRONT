@@ -210,6 +210,16 @@ body {
     right: 15px;
     font-size: 1vh;
   }
+
+  .navbar{
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    background-color: #1b2c3f; 
+    z-index: 1000; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
   
   .nav-container input[type="checkbox"]:checked ~ .menu-items {
     transform: translateX(0);
@@ -262,7 +272,16 @@ body {
   .openBtn{
     width: 100%;
     position: fixed;
-    height: 0vh;
+    height: 100vh;
     background-color: #1b2c3f;
   }
+
+  .contNav{
+    width: 102vh;
+  }
+
+  .contenitoreMenuTopBar{
+    width: 170vh;
+  }
+  
 }

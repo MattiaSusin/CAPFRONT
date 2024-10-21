@@ -17,13 +17,13 @@ const TopBarMobile = () => {
     };
 
     return(
-      <Container fluid className="topBarMobile d-flex justify-content-between align-items-center">
-        <div className="d-flex align-items-center btnMobile m-2">
+      <Container fluid className="topBarMobile d-flex justify-content-between align-items-center contNav">
+       {/*  <div className="d-flex align-items-center btnMobile m-2">
           <button className="btnTopBar" onClick={toggleMenu}>
             {menuOpen ? <FaTimes/> : <FaBars/>}
             </button>
-        </div>
-        {menuOpen && (
+        </div> */}
+       {/*  {menuOpen && (
           <div className="d-flex flex-column align-items-center openBtn border">
             <NavLink to="/" className="nav-link">
               <p className="me-4 textTopBar pt-3">
@@ -43,10 +43,10 @@ const TopBarMobile = () => {
             <button className="btnTopBar">PRENOTA</button>
             </NavLink>
           </div>   
-        )}
+        )} */}
 
 
-{/* <div className="navbar w-100 border">
+ <div className="navbar">
           <div className="logo">
           <NavLink to="/" className="nav-link">
           <img src="../../../src/assets/Images/Logo_Footer.png" alt="" className="imgLogoTopBarM"/>
@@ -59,7 +59,7 @@ const TopBarMobile = () => {
               <span className="line line2"></span>
               <span className="line line3"></span>
             </div>  
-          <div className="menu-items">
+          <div className="menu-items contenitoreMenuTopBar">
             <li className="mb-5"><a href="#">Home</a></li>
             <li className="mb-5"><a href="#">Cucina</a></li>
             <li className="mb-5"><a href="#">Lounge Bar</a></li>
@@ -68,7 +68,7 @@ const TopBarMobile = () => {
             <li className="mb-5"><a href="#">Prenota</a></li>
           </div>
         </div>
-      </div> */}
+      </div>
 
       </Container>
     )
