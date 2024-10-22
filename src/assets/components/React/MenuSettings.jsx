@@ -18,16 +18,36 @@ import useApi from "../../../hooks/Api";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
 import useDeleteItem from "../../../hooks/useDeleteItem";
+import useCreateItem from "../../../hooks/useCreateItem";
+import Toast from 'react-bootstrap/Toast';
+
+
 
 const MenuSettings = () => {
 
+  
+  
+  
   //! STATI DEI DUE MODALI
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
 
+  //! TOAST 
+  const [showToast, setShowToast] = useState(false);
+
+
   //! GESTIONE MODALE NR. 1
   const handleClose1 = () => setShow1(false);
-  const handleShow1 = () => setShow1(true);
+  const handleShow1 = () => {
+    setFormData({
+    titolo: "",
+    descrizione: "",
+    prezzo: "",
+    /* immagine: "", */
+    tipoPiatto: "",
+    });
+    setShow1(true);
+  };
 
   //! GESTIONE MODALE NR.2
   const handleClose2 = () => setShow2(false);
@@ -37,18 +57,19 @@ const MenuSettings = () => {
     titolo: "",
     descrizione: "",
     prezzo: "",
-    immagine: "",
+    /* immagine: "", */
     tipoPiatto: "",
   });
 
 
   const [showDelete, setShowDelete] = useState(false);
 
+
   const handleClose = () => setShowDelete(false);
   const handleShowDelete = () => setShowDelete(true);
 
   useEffect(() => {
-    console.log("Form data updated:", formData);
+    
   }, [formData]);
 
   const navigate = useNavigate();
@@ -64,6 +85,7 @@ const MenuSettings = () => {
   const [success, setSuccess] = useState(false);
   const { data, loading, error } = useApi(`menu/view/food`);
   const {deleteItem, loading: deleteLoading, error: deleteError, response: deleteResponse} = useDeleteItem();
+  const {createItem, loading: createItemLoading, error: createItemError, response: createItemResponse } = useCreateItem();
 
   
   if (loading) return <Spinner animation="border" />;
@@ -71,6 +93,9 @@ const MenuSettings = () => {
   
   const handleChange = (e) => {
     const { name, value } = e.target;
+   /*  if(name === "prezzo"){
+      const price = parseFloat(value);
+    } */
     setFormData({ ...formData, [name]: value });
   };
   
@@ -85,19 +110,35 @@ const MenuSettings = () => {
     if (!formData.descrizione)
       errors.descrizione = "Il descrizione è da inserire";
     if (!formData.prezzo) errors.prezzo = "L'prezzo è da inserire";
-    if (!formData.image) errors.image = "Il image è da inserire";
-    if (!formData.tipoPiatto)
-      errors.tipoPiatto = "Il Tipo del piatto è da inserire";
-    
+    if (!formData.tipoPiatto) errors.tipoPiatto = "Il Tipo del piatto è da inserire";
     return errors;
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit  = async (e) => {
     e.preventDefault();
     const validateErrors = validate();
     if (Object.keys(validateErrors).length === 0) {
-      console.log("form submitted", formData);
+      const {
+        titolo,
+        descrizione,
+        prezzo,
+        tipoPiatto,
+      } = formData;
+      const formDataParsed = {
+        titolo,
+        descrizione,
+        prezzo: parseFloat(prezzo),
+        tipoPiatto,
+      }
+      await createItem(formDataParsed);
+      if(!createItemError){
+       /*  alert('Piatto creato correttamente') */ //sistemare 
+        setShow1(false);
+        setShowToast(true);
+        window.location.reload();
+      }
       setSuccess(true);
+      
     } else {
       setErrors(validateErrors);
       setSuccess(false);
@@ -109,7 +150,7 @@ const MenuSettings = () => {
       titolo: plate.titolo,
       descrizione: plate.descrizione,
       prezzo: plate.prezzo,
-      imaggine: plate.immagine,
+      /* imaggine: plate.immagine, */
       tipoPiatto: plate.tipoPiatto,
     });
     
@@ -159,19 +200,21 @@ const MenuSettings = () => {
               <FormLabel className="mt-3 textColor">
                 Seleziona il tipo di piatto*
               </FormLabel>
-              <Form.Select
+              <Form.Control
+                as="select"
+                name="tipoPiatto"
                 aria-label="Default select example"
                 className="selectBg"
                 value={formData.tipoPiatto}
                 isInvalid={!!errors.tipoPiatto}
                 onChange={handleChange}
               >
-                <option>-- -- --</option>
-                <option value="1">Antipasto</option>
-                <option value="2">Primo</option>
-                <option value="3">Secondo</option>
-                <option value="4">Dessert</option>
-              </Form.Select>
+                <option value="">Seleziona il tipo di piatto</option>
+                <option value="ANTIPASTO">Antipasto</option>
+                <option value="PRIMO">Primo</option>
+                <option value="SECONDO">Secondo</option>
+                <option value="DESSERT">Dessert</option>
+              </Form.Control>
               <FormControl.Feedback type="invalid">
                 {errors.tipoPiatto}
               </FormControl.Feedback>
@@ -211,22 +254,21 @@ const MenuSettings = () => {
               <Form.Label className="mt-4 textColor">Prezzo*</Form.Label>
               <Form.Control
                 type="number"
+                name="prezzo"
                 placeholder="Inserisci il prezzo"
                 value={formData.prezzo}
                 onChange={handleChange}
-                min="0"
-                step="0.01"
                 className="selectBg"
+                isInvalid={!!errors.prezzo}
               />
 
               {/* --------------IMMAGINE---------------- */}
-
               <Form.Group controlId="formFile" className="mt-3 textColor">
                 <Form.Label className="">Seleziona un&apos;immagine</Form.Label>
                 <Form.Control
                   type="file"
                   accept="image/*"
-                  onChange={handleFileChange}
+                  /* onChange={handleFileChange} */
                   className="selectBg"
                 />
               </Form.Group>
@@ -235,9 +277,8 @@ const MenuSettings = () => {
               <Button
                 variant="primary"
                 type="submit"
-                onClick={handleClose1}
+                onClick={handleSubmit}
                 className="btnFormPrenotazione"
-                /*  */
               >
                 {" "}
                 GENERA PIATTO
@@ -486,6 +527,18 @@ const MenuSettings = () => {
       </Link>
 
     </div>
+    <Toast show={showToast} onClose={() => setShowToast(false)} delay={2000} autohide >
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+        </Toast>
     </div>
   );
 };

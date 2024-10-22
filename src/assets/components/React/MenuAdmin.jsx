@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import "../Css/MenuAdmin.css";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const MenuAdmin = () => {
   const navigate = useNavigate();
@@ -11,6 +12,17 @@ const MenuAdmin = () => {
    Cookies.remove('accessToken');
    navigate('/loginAdmin');
   } 
+
+  //TODO:  COOKIES PAGE  
+
+  useEffect(() => { 
+    const tokenLogin = Cookies.get('accessToken');
+    if(!tokenLogin){
+     navigate('/loginAdmin');
+    }
+   }, [navigate]);
+
+
   return (
     <div className="contMenuAdmin backgroundAdmin">
         <div className="d-flex justify-content-center align-items-center h-25 contH1Admin">

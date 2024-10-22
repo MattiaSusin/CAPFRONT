@@ -1,43 +1,41 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
-const usePost = () => {
+const useCreateItem = () => {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [response, setResponse] = useState(null);
 
-    const login = async (piatto) => { 
+    const createItem = async (formData) => { 
 
         setLoading(true);
         setError(null);
 
         try {
-
-            const res = await fetch('http://localhost:3001/auth/login', {
+            const accessToken = Cookies.get('accessToken');
+            console.log(formData);
+            console.log(JSON.stringify({formData}));
+            const res = await fetch('http://localhost:3001/menu/crea', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',  
                     'Authorization' : `Bearer ${accessToken}`
                 }, 
-                body: JSON.stringify({piatto}),
+                body: JSON.stringify(formData),
             });
             if (!res.ok){
-                throw new Error("Utente non registrato");
+                throw new Error("Creazione piatto non riuscita");
             }
             const data = await res.json();
             setResponse(data);
             console.log('Data response', data);
-            const { accessToken } = data;
-            if (accessToken) {
-                Cookies.set('accessToken', accessToken, {expires: 1})
-            } 
         } catch (err) {
             setError(err.message);
         } finally {
             setLoading(false);
         }
     }
-    return { login, loading, error, response };
+    return { createItem, loading, error, response };
 }
 
-export default usePost;
+export default useCreateItem;
