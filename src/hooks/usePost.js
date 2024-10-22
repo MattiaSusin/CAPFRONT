@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Cookies from "js-cookie";
-const useLogin = () => {
+const usePost = () => {
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [response, setResponse] = useState(null);
 
-    const login = async (email, password) => {
+    const login = async (piatto) => { 
 
         setLoading(true);
         setError(null);
@@ -17,12 +17,12 @@ const useLogin = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',  
-                   
+                    'Authorization' : `Bearer ${accessToken}`
                 }, 
-                body: JSON.stringify({email, password}),
+                body: JSON.stringify({piatto}),
             });
             if (!res.ok){
-                throw new Error("Admin non registrato");
+                throw new Error("Utente non registrato");
             }
             const data = await res.json();
             setResponse(data);
@@ -40,4 +40,4 @@ const useLogin = () => {
     return { login, loading, error, response };
 }
 
-export default useLogin;
+export default usePost;
