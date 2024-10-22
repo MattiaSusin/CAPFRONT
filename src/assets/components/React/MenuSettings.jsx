@@ -474,7 +474,7 @@ const MenuSettings = () => {
           </div>
         </div>
       </div>
-      <div className="d-flex justify-content-center  mt-5">
+      <div className="d-flex justify-content-center mt-5 btnMenuSettings">
       <Link to="/menuAdmin">
     <Button className="btnFormPrenotazione mb-5">
       TORNA ALLA HOME
