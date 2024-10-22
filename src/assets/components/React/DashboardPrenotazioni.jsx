@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
 import { Alert, Button, Form, FormControl, InputGroup, Spinner} from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import '../Css/DashBoardPrenotazioni.css'
 import useApi from "../../../hooks/Api";

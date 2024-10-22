@@ -12,32 +12,54 @@ import LoginAdmin from './assets/components/React/LoginAdmin'
 import MenuAdmin from './assets/components/React/MenuAdmin'
 import MenuSettings from './assets/components/React/MenuSettings'
 import DashBoardPrenotazioni from './assets/components/React/DashboardPrenotazioni'
+import {useLocation } from 'react-router-dom';
+
+// COMPONENTE LAYOUT
+// eslint-disable-next-line react/prop-types
+const Layout = ({ children }) => {
+  const location = useLocation();
+  
+  // DOVE NON MOSTRIAMO TOP BAR E FOOTER
+  const adminRoutes = [
+    '/loginAdmin',
+    '/menuAdmin',
+    '/dashboard',
+    '/menuSettings'
+  ];
+  
+  // CONTROLLO DEL PERCORSO CORRENTE 
+  const isAdminRoute = adminRoutes.includes(location.pathname);
+  
+  return (
+    <>
+      {!isAdminRoute && <TopBar />}
+      {!isAdminRoute && <TopBarMobile />}
+      {children}
+      {!isAdminRoute && <Footer />}
+    </>
+  );
+};
 
 function App() {
-
   return (
     <BrowserRouter>
-    <TopBar/>
-    <TopBarMobile/>
-       <Routes>
-       <Route path="/" element={<HomePage/>} />
-       <Route path="/loungeBar" element={<LoungeBar/>} />
-       <Route path="/menu" element={<Menu/>} />
-       <Route path="/contatti" element={<Contatti/>} />
-       <Route path="/prenotazione" element={<Prenotazione/>} />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/loungeBar" element={<LoungeBar />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/contatti" element={<Contatti />} />
+          <Route path="/prenotazione" element={<Prenotazione />} />
 
-
-      {/*---------------  ADMIN PAGES---------------  */}
-
-       <Route path="/loginAdmin" element={<LoginAdmin/>} />
-       <Route path="/menuAdmin" element={<MenuAdmin/>} />
-       <Route path="/dashboard" element={<DashBoardPrenotazioni/>} />
-       <Route path="/menuSettings" element={<MenuSettings/>} />
-
-       </Routes>
-      <Footer/>                                    
-   </BrowserRouter>
-  )
+          {/* Admin Pages */}
+          <Route path="/loginAdmin" element={<LoginAdmin />} />
+          <Route path="/menuAdmin" element={<MenuAdmin />} />
+          <Route path="/dashboard" element={<DashBoardPrenotazioni />} />
+          <Route path="/menuSettings" element={<MenuSettings />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -45,8 +45,22 @@ body{
         margin-right: 2vh;
         margin-left: 1.5vh;
     }
-   
+
 }
+
+@media screen and (max-width: 662px) {
+    .tableOrrizonta {
+      display: none;
+    }
+  }
+
+@media screen and (min-width:662px){
+    .tableVertical{
+        display: none !important;
+    }
+}  
+
+
 @media(max-width:507px){
     .formDataDash{
         margin-left: 5vh;
@@ -62,28 +76,18 @@ body{
         margin-top: 10vh;
         width: 102vh;
     }
-.formDataDash{
-    width: 100vh;
-}
-.tableVertical{
-    width: 102vh;
-}
+
+    .formDataDash{
+        width: 100vh;
+    }
+    .tableVertical{
+        width: 102vh;
+    }
+
 
 @media(max-width:652px){
     .h1Dash{
         font-size: 6vh;
-    }
-
-    .tableOrrizonta{
-        display: none;
-    }
-
-}
-
-@media(min-width:653px){
-
-    .tableVertical{
-        display: none !important;
     }
 }
 
@@ -95,4 +99,6 @@ body{
 
 .contDash {
     width: 102vh;
+}
+
 }
