@@ -17,7 +17,6 @@ const TopBar = () => {
           <p className="me-4 textTopBar pt-3">
            HOME</p>
            </NavLink>
-          <p className="me-4 textTopBar pt-3">CUCINA</p>
           <NavLink to="/loungeBar" className="nav-link">
           <p className="me-4 textTopBar pt-3">LOUNGE BAR</p>
           </NavLink>

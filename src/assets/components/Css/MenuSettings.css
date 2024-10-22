@@ -1,59 +1,58 @@
-
-.h1MenuSett{
-font-size: 8vh;
+.h1MenuSett {
+  font-size: 8vh;
 }
 
-
-
-.modalPosition{
-   margin-top: 20vh;
+.modalPosition {
+  margin-top: 20vh;
+  
 }
 
-.selectBg{
-   background-color: #1b2c3f;
-   color: aliceblue;
+.selectBg {
+  background-color: #1b2c3f;
+  color: aliceblue;
 }
 
-.textColor{
-   color: #ffc999;
+.textColor {
+  color: #ffc999;
 }
 
-.DeleteBtn{
-cursor: pointer;
+.DeleteBtn {
+  cursor: pointer;
 }
 
-#selectFormGestione{
-   width: 20vh;
+#selectFormGestione {
+  width: 20vh;
 }
 
-@media(max-width:1600px){
-
-   .contTotCard{
-      width: 150vh;
-      display: flex;
-      justify-content: center;
-   }
-
-   .cardContExt{
-   padding-right:50vh;
-   margin-right: 5vh;
-   }
-
-   .contmobile{
-      width: 182vh;
-   }
-   .contMobileInt{
-      width: 170vh;
-   }
+.modal-content {
+  background-color: #1b2c3f !important;
 }
 
+@media (max-width: 1600px) {
+  .contTotCard {
+    width: 150vh;
+    display: flex;
+    justify-content: center;
+  }
 
-@media(max-width:700px){
+  .cardContExt {
+    padding-right: 50vh;
+    margin-right: 5vh;
+  }
 
-   .contMobileInt{
-      width: 170vh;
-   }
+  .contmobile {
+    width: 182vh;
+  }
+  .contMobileInt {
+    width: 170vh;
+  }
 }
-.btnMenuSettings{
-   width: 180vh;
+
+@media (max-width: 700px) {
+  .contMobileInt {
+    width: 170vh;
+  }
+}
+.btnMenuSettings {
+  width: 202.8vh;
 }

@@ -61,11 +61,11 @@ const Contatti = () => {
       </div>
       {/* INIZIO  */}
 
-      <div className="mt-5  cont1FormContatti ">
+      <div className="cont1FormContatti ">
         {" "}
         {/* ------------------------------------------ CONTENITORE 1 ----------------------------------------------- */}
-        <div  className="contContactContatti mt-5 mb-5">
-          <div className=''>
+        <div  className="contContactContatti">
+          <Col className='contenitoreSxContatti' md={6}>
 
           <div className="d-flex mb-5">
             <div>
@@ -171,7 +171,7 @@ const Contatti = () => {
               </Card.Body>
             </Card>
           </div>
-          </div>
+          </Col>
           
               <Col md={6} className=" contFormContatti">
                 <Card className="cardContattiForm border-0">
@@ -269,7 +269,7 @@ const Contatti = () => {
         <iframe
           title="Google Map"
           width="100%"
-          height="650"
+          height="500"
           src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Viale%20Fratelli%20Cairoli,%20181%20,%20Treviso%20-%2031100+(Restaurant%20&amp;%20Lounge)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           allowFullScreen
         ></iframe>

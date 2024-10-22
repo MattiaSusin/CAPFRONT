@@ -31,7 +31,6 @@ const TopBarMobile = () => {
         <div className="custom-menu">
           <Nav className="flex-column align-items-center">
             <Nav.Link href="/" onClick={toggleMenu}>HOME</Nav.Link>
-            <Nav.Link href="/cucina" onClick={toggleMenu}>CUCINA</Nav.Link>
             <Nav.Link href="/loungeBar" onClick={toggleMenu}>LOUNGE BAR</Nav.Link>
             <Nav.Link href="/menu" onClick={toggleMenu}>MENU</Nav.Link>
             <Nav.Link href="/contatti" onClick={toggleMenu}>CONTATTI</Nav.Link>

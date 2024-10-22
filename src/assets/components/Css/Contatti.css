@@ -114,8 +114,7 @@ border: none;
 }
 
 .mapsContatti{
-    width: 223.3vh;
-    border: 2px solid red;
+    width: 202.8vh;
 }
 
 .cont1FormContatti{
@@ -128,58 +127,16 @@ border: none;
 }
 
 .imgContatti{
-    width: 203.3vh;
-    
-    object-fit: contain;
+    width: 202.8vh;
+    height: 80vh;
+    object-fit: cover;
+}
 
+.contenitoreSxContatti{
+    border: 2px solid red;
+    height: 100vh;
+    margin-bottom: 5vh;
 }
 
 /*!!!!!!!!!!!!!! MOBILE !!!!!!!!!!!!!!*/
-
-@media(max-width:376px){
-
-    .cont1FormContatti{
-        height: 200vh;
-    }
-
-    .cardContattiForm{
-        
-        min-width: 56.19vh;
-
-    }
-
-    .cardContatti{
-        margin-right: 5vh;
-    }
-
-}
-
-@media(max-width:494px){
-    .cont1FormContatti{
-        height: 150vh;
-        display: block;
-        border: 2px solid red;
-        align-items: center;
-    }
-
-    .mapsContatti{
-       min-width: 50vh;
-    }
-
-    .cardContatti{
-        margin-top: 10vh;
-        margin-left: 5vh;
-    }
-
-    .prova1{
-        margin-top: 5vh;
-        margin-bottom: 5vh;
-    }
-
-    .contContactContatti{
-        
-    }
-
-}
-    
 

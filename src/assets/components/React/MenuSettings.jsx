@@ -140,7 +140,7 @@ const MenuSettings = () => {
               <p>Riceverai una risposta quanto prima dal nostro staff</p>
             </>
           )}
-          <Button variant="primary" onClick={handleShow1}>
+          <Button variant="primary" onClick={handleShow1} className="btnFormPrenotazione">
             NUOVO PIATTO
           </Button>
 
@@ -184,7 +184,7 @@ const MenuSettings = () => {
                 value={formData.titolo}
                 onChange={handleChange}
                 isInvalid={!!errors.titolo}
-                className=""
+                className="selectBg"
               />
               <FormControl.Feedback type="invalid">
                 {errors.titolo}
@@ -200,7 +200,7 @@ const MenuSettings = () => {
                 value={formData.descrizione}
                 onChange={handleChange}
                 isInvalid={!!errors.descrizione}
-                className=""
+                className="selectBg"
               />
               <FormControl.Feedback type="invalid">
                 {/* {errors.descrizione} */}
@@ -212,20 +212,22 @@ const MenuSettings = () => {
               <Form.Control
                 type="number"
                 placeholder="Inserisci il prezzo"
-                value={name}
+                value={formData.prezzo}
                 onChange={handleChange}
                 min="0"
                 step="0.01"
+                className="selectBg"
               />
 
               {/* --------------IMMAGINE---------------- */}
 
               <Form.Group controlId="formFile" className="mt-3 textColor">
-                <Form.Label>Seleziona un&apos;immagine</Form.Label>
+                <Form.Label className="">Seleziona un&apos;immagine</Form.Label>
                 <Form.Control
                   type="file"
                   accept="image/*"
                   onChange={handleFileChange}
+                  className="selectBg"
                 />
               </Form.Group>
             </Modal.Body>
@@ -253,7 +255,7 @@ const MenuSettings = () => {
             className="modalPosition textColor"
           >
             <Modal.Header closeButton>
-              <Modal.Title>NUOVO PIATTO</Modal.Title>
+              <Modal.Title>MODIFICA PIATTO</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               {/* --------------TIPO PIATTO---------------- */}
@@ -285,7 +287,7 @@ const MenuSettings = () => {
                 value={formData.titolo}
                 onChange={handleChange}
                 isInvalid={!!errors.titolo}
-                className=""
+                className="selectBg"
               />
               <FormControl.Feedback type="invalid">
                 {/* {errors.titolo} */}
@@ -301,7 +303,7 @@ const MenuSettings = () => {
                 value={formData.descrizione}
                 onChange={handleChange}
                 isInvalid={!!errors.descrizione}
-                className=""
+                className="selectBg"
               />
               <FormControl.Feedback type="invalid">
                 {/* {errors.descrizione} */}
@@ -313,8 +315,9 @@ const MenuSettings = () => {
               <Form.Control
                 type="number"
                 placeholder="Inserisci il prezzo"
-                value={name}
+                value={formData.prezzo}
                 onChange={handleChange}
+                className="selectBg"
                 min="0"
                 step="0.01"
               />
@@ -327,6 +330,7 @@ const MenuSettings = () => {
                   type="file"
                   accept="image/*"
                   onChange={handleFileChange}
+                  className="selectBg"
                 />
               </Form.Group>
             </Modal.Body>
@@ -338,7 +342,7 @@ const MenuSettings = () => {
                 className="btnFormPrenotazione"
               >
                 {" "}
-                GENERA PIATTO
+                CONFERMA MODIFICA
               </Button>
             </Modal.Footer>
           </Modal>
