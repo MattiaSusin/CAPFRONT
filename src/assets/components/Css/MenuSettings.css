@@ -28,6 +28,13 @@
   background-color: #1b2c3f !important;
 }
 
+.ToastCont{
+  position: fixed;
+  bottom: 20;
+  right: 20;
+  z-index: 1000;
+}
+
 @media (max-width: 1600px) {
   .contTotCard {
     width: 150vh;

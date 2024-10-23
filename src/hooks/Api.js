@@ -6,6 +6,7 @@ const useApi = (endpoint, options = {}, accessToken = null) => {
     const [loading, setLoading] = useState(true);
     const [error,setError] = useState(null);
 
+    
     const headers = {
         'Content-Type': 'application/json', 
         ...options.headers
@@ -28,7 +29,7 @@ const useApi = (endpoint, options = {}, accessToken = null) => {
 
 
 
-            }catch{
+            }catch(error){
                 setError(error);
             }finally{
                 setLoading(false);

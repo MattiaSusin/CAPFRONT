@@ -6,7 +6,6 @@ import {
   Container,
   Row,
   Spinner,
-  Button,
 } from "react-bootstrap";
 import "../Css/Menu.css";
 import useApi from "../../../hooks/Api";
@@ -31,7 +30,7 @@ const Menu = () => {
                 <Col key={plate.titolo} xs={12} md={6} className="mb-4 mt-5">
                   <Card className="cardCont me-5 ms-4">
                     <Card.Body className="d-flex justify-content-around">
-                      <div className="d-flex">
+                      <div className="d-flex cardWid">
                         <img
                           src={plate.immagine}
                           alt=""
@@ -52,10 +51,6 @@ const Menu = () => {
       </div>
     );
   };
-
-
-  
-
   return (
     <>
       {/* Video di sfondo */}
@@ -73,11 +68,11 @@ const Menu = () => {
       </div> 
       
     <div>
-      <div className="menu-buttons">
-        <Button onClick={() => setActiveMenu("antipasto")}>Antipasti</Button>
-        <Button onClick={() => setActiveMenu("primo")}>Primi</Button>
-        <Button onClick={() => setActiveMenu("secondo")}>Secondi</Button>
-        <Button onClick={() => setActiveMenu("dessert")}>Dessert</Button>
+      <div className="menu-buttons contBtnMenu pt-5 pb-5">
+        <button className="topBarMenu me-5 mt-5" onClick={() => setActiveMenu("antipasto")}>ANTIPASTI</button>
+        <button className="topBarMenu me-5 mt-5" onClick={() => setActiveMenu("primo")}>PRIMI</button>
+        <button className="topBarMenu me-5 mt-5" onClick={() => setActiveMenu("secondo")}>SECONDI</button>
+        <button className="topBarMenu me-5 mt-5" onClick={() => setActiveMenu("dessert")}>DESSERT</button>
       </div>
       <ListMenuContent />
     </div>

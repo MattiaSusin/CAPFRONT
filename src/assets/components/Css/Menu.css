@@ -1,7 +1,7 @@
 .video-background-container {
     position: relative;
     width: 100%;
-    height: 100vh; 
+    height: 70vh; 
     overflow: hidden;
      
   }
@@ -39,6 +39,7 @@
 
   .topBarMenu:hover{
     color: #ffc999;
+    border: none;
   }
 
   .contBtnMenu{
@@ -46,7 +47,14 @@
     justify-content: center;
     background-color: #1b2c3f;
   }
+
+  .cardWid{
+  width: 100vh;
+  }
   
+  .contTotCard{
+    margin-left: 8vh;
+  }
   /* .menu-content{
     border: 2px solid white;
   } */
