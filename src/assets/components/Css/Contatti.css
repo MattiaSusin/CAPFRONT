@@ -1,5 +1,5 @@
 .contFormPrenotazione{
-    background-color: #1b2c3f;
+    background-color: #122029;
 }
 
 .indirizzoContatti{
@@ -30,7 +30,7 @@
 
 .cardContattiForm{
     height: 100%;
-    background-color: #1b2c3f;
+    background-color: #122029;
     color: aliceblue;
 
 }
@@ -40,7 +40,7 @@
     color: #ffc999;
 }
 .labelContatti{
-    background-color: #1b2c3f;
+    background-color: #122029;
     border: none;
     color: white;
 }
@@ -72,7 +72,7 @@
 .cardCont{
 display: flex;
 justify-content: space-around;
-background-color: #1b2c3f;
+background-color: #122029;
 color: aliceblue;
 border: none;
 }
@@ -100,7 +100,7 @@ border: none;
 }
 
 .textFormTitle{
-    background-color: #1b2c3f;
+    background-color: #122029;
     border: none;
     border-radius: 0%;
     border-bottom: 1px solid;

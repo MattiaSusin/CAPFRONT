@@ -26,7 +26,7 @@
       justify-content: center;
     }
     .formPrenotazione{
-      background-color: #1b2c3f;
+      background-color: #122029;
       color: aliceblue;
     }
     .formPrenotazione{
@@ -35,14 +35,14 @@
     
     /*!!!!!!!!!!!!!! SISTEMAZIONE BLOCCHI FORM!!!!!!!!!!!!!!!!!!!!!*/
     .contTotPrenotazioni{
-      background-color: #1b2c3f;
+      background-color: #122029;
     }
 
     .form1Riga{
       width:200vh ;
       /* border: 2px solid red; */
     
-      background-color: #1b2c3f;
+      background-color: #122029;
     }
 
     .btnFormPrenotazione{

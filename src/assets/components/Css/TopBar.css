@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #1b2c3f;
+  background-color: #122029;
   position: fixed;
   z-index: 1000;
   width: 100%;
@@ -82,7 +82,7 @@ body {
 }
 
 .menu-items {
-  background-color: #1b2c3f;
+  background-color: #122029;
   background-color: rgba(27, 44, 63, 0.8);
 }
 
@@ -214,11 +214,11 @@ body {
 }
 
 .homeTopBar {
-  background-color: #1b2c3f;
+  background-color: #122029;
 }
 
 .modal-open {
-  background-color: #1b2c3f;
+  background-color: #122029;
 }
 
 .topbar-mobile {
@@ -226,7 +226,7 @@ body {
 }
 
 .topbar-mobile .custom-navbar {
-  background-color: #1b2c3f;
+  background-color: #122029;
   height: 60px;
 }
 
@@ -247,7 +247,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #1b2c3f;
+  background-color: #122029;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -264,7 +264,7 @@ body {
 
 .topbar-mobile .prenota-button {
   background-color: #ffc999;
-  color: #1b2c3f;
+  color: #122029;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
@@ -292,7 +292,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #1b2c3f;
+    background-color: #122029;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }

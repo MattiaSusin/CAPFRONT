@@ -58,7 +58,7 @@ const LoginAdmin = () => {
         style={{
           width: "35rem",
           height: "40rem",
-          background: "#1b2c3f",
+          background: "#122029",
           color: "white",
         }}
         className="border-0"

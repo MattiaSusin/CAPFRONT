@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; //! IMPORTAZIONE BOOTSTRAP-REACT
 import { Alert, Button, Form, FormControl, InputGroup, Spinner} from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../Css/DashBoardPrenotazioni.css'
 import useApi from "../../../hooks/Api";
 import Cookies from "js-cookie";
@@ -11,12 +11,15 @@ const DashBoardPrenotazioni = () => {
   const tokenLogin = Cookies.get('accessToken');
   const { data, loading, error } = useApi( `prenotazioni`, {}, tokenLogin );
 
+
+  const navigate = useNavigate();
+
   useEffect(() => {
-
-
-
-
-  }, []);
+    const tokenLogin = Cookies.get('accessToken');
+    if(!tokenLogin){
+     navigate('/loginAdmin');
+    }
+   }, [navigate]);
 
 
   if (loading) return <Spinner animation="border" />;
