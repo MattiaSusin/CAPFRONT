@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import useApi from "../../../hooks/Api";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
-import useDeleteItem from "../../../hooks/useDeleteItem";
+import useDeleteDrink from "../../../hooks/useDeleteDrink";
 import useCreateItem from "../../../hooks/useCreateItem";
 import { Toast } from 'react-bootstrap';
 
@@ -80,7 +80,7 @@ const DrinkSettings = () => {
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const { data, loading, error } = useApi(`drinks/view/drink`);
-  const {deleteItem, loading: deleteLoading, error: deleteError, response: deleteResponse} = useDeleteItem();
+  const {deleteDrink, loading: deleteLoading, error: deleteError, response: deleteResponse} = useDeleteDrink();
   const {createItem, loading: createItemLoading, error: createItemError, response: createItemResponse } = useCreateItem();
 
   
@@ -153,7 +153,7 @@ const DrinkSettings = () => {
   };
 
   const handleDelete = async (id,titolo) => {
-    await deleteItem(id);
+    await deleteDrink(id);
       const titoloMessage = `Il drink ${titolo} è stato eliminato con successo`;
       alert(titoloMessage);
       /* handleClose(); */
