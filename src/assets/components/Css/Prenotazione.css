@@ -1,5 +1,6 @@
 .imgPrenotazione{
-    width: 100%;
+    
+  width:176.9vh;
     height: 900px;
     background-size: cover ;
     object-fit:cover;
@@ -14,12 +15,12 @@
       border-bottom: transparent; 
       border-radius: 0;
       background-color: transparent;
-      width: 100%; 
+       
       text-align: left; 
     }
     
     .dropdown-menu {
-      width: 100%; 
+       
     }
     .contFormPrenotazione{
       align-items: center;
@@ -32,16 +33,20 @@
     .formPrenotazione{
       align-items: center;
     }
-    
-    /*!!!!!!!!!!!!!! SISTEMAZIONE BLOCCHI FORM!!!!!!!!!!!!!!!!!!!!!*/
-    .contTotPrenotazioni{
-      background-color: #122029;
+
+    .contCardPrenotazioni{
+      width: 175vh;
     }
 
-    .form1Riga{
-      width:200vh ;
-      /* border: 2px solid red; */
+    .contTitoloPrenotazioni{
+      width: 175vh;
+    }
+
+    .mapsCOnt{
+    width: 176.9vh;
+    }
     
+    .contTotPrenotazioni{
       background-color: #122029;
     }
 
@@ -79,10 +84,6 @@
     .pTitoloPrenotazione{
       font-size: 2vh;
       color: #ffc999;
-    }
-
-    #btnprenotazione{
-      width: 202vh;
     }
 
     .react-datepicker-wrapper {
