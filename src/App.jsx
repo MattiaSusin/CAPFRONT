@@ -13,6 +13,7 @@ import MenuAdmin from './assets/components/React/MenuAdmin'
 import MenuSettings from './assets/components/React/MenuSettings'
 import DashBoardPrenotazioni from './assets/components/React/DashboardPrenotazioni'
 import {useLocation } from 'react-router-dom';
+import DrinkSettings from './assets/components/React/DrinkSettings'
 
 // COMPONENTE LAYOUT
 // eslint-disable-next-line react/prop-types
@@ -24,7 +25,8 @@ const Layout = ({ children }) => {
     '/loginAdmin',
     '/menuAdmin',
     '/dashboard',
-    '/menuSettings'
+    '/menuSettings',
+    '/drinkSettings'
   ];
   
   // CONTROLLO DEL PERCORSO CORRENTE 
@@ -56,6 +58,7 @@ function App() {
           <Route path="/menuAdmin" element={<MenuAdmin />} />
           <Route path="/dashboard" element={<DashBoardPrenotazioni />} />
           <Route path="/menuSettings" element={<MenuSettings />} />
+          <Route path="/drinkSettings" element={<DrinkSettings />} />
         </Routes>
       </Layout>
     </BrowserRouter>

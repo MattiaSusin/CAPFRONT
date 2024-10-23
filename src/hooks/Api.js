@@ -23,6 +23,7 @@ const useApi = (endpoint, options = {}, accessToken = null) => {
                     ...options, 
                     headers,
                 });
+
                 console.log("response", response);
                 const result = await response.json();
                 setData(result);

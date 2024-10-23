@@ -32,7 +32,7 @@ const MenuAdmin = () => {
         <NavLink to="/dashboard" className="nav-link">
           <Button className="btnFormMenuAdmin btnAdmin me-5">PRENOTAZIONI</Button>
         </NavLink>
-        <NavLink to="/" className="nav-link">
+        <NavLink to="/drinkSettings" className="nav-link">
           <Button className="btnFormMenuAdmin btnAdmin me-5">DRINK</Button>
         </NavLink>
         <NavLink to="/menuSettings" className="nav-link">
