@@ -13,7 +13,6 @@ const DashBoardPrenotazioni = () => {
 
 
   const navigate = useNavigate();
-
   useEffect(() => {
     const tokenLogin = Cookies.get('accessToken');
     if(!tokenLogin){
