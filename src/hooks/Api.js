@@ -23,20 +23,15 @@ const useApi = (endpoint, options = {}, accessToken = null) => {
                     ...options, 
                     headers,
                 });
-
                 console.log("response", response);
                 const result = await response.json();
                 setData(result);
-
-
-
             }catch(error){
                 setError(error);
             }finally{
                 setLoading(false);
             }
         }
-
         fetchData();
     },[endpoint, error]);
 

@@ -4,6 +4,7 @@ import chef from "../../../../src/assets/Images/Piatti/Chef.webp";
 import baristi from "../../../../src/assets/Images/Piatti/Baristi.jpg";
 import "../Css/HomePage.css";
 import { Card } from "react-bootstrap";
+import Logo from '../../../assets/Images/Piatti/Logo_Footer ok.png'
 
 const HomePage = () => {
   return (
@@ -12,7 +13,7 @@ const HomePage = () => {
       <div className="contHomePage d-flex justify-content-center">
         <div className="">
           <img
-            src="../../../../src/assets/Images/Logo_Footer.jpg.png"
+            src={Logo}
             alt=""
             className="imgHome"
           />
