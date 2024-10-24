@@ -1,102 +1,133 @@
-.imgPrenotazione{
-    
-  width:176.9vh;
-    height: 900px;
-    background-size: cover ;
-    object-fit:cover;
-    }
-    
-    .dropdown-toggle::after {
-      display: none;
-    }
-    
-    .dropdown-toggle {
-      border: none;
-      border-bottom: transparent; 
-      border-radius: 0;
-      background-color: transparent;
-       
-      text-align: left; 
-    }
-    
-    .dropdown-menu {
-       
-    }
-    .contFormPrenotazione{
-      align-items: center;
-      justify-content: center;
-    }
-    .formPrenotazione{
-      background-color: #122029;
-      color: aliceblue;
-    }
-    .formPrenotazione{
-      align-items: center;
-    }
+.imgPrenotazione {
+  width: 202.8vh;
+  height: 900px;
+  background-size: cover;
+  object-fit: cover;
+}
 
-    .contCardPrenotazioni{
-      width: 175vh;
-    }
+.dropdown-toggle::after {
+  display: none;
+}
 
-    .contTitoloPrenotazioni{
-      width: 175vh;
-    }
+.dropdown-toggle {
+  border: none;
+  border-bottom: transparent;
+  border-radius: 0;
+  background-color: transparent;
 
-    .mapsCOnt{
-    width: 176.9vh;
-    }
-    
-    .contTotPrenotazioni{
-      background-color: #122029;
-    }
+  text-align: left;
+}
 
-    .btnFormPrenotazione{
-      color:  #ffc999;
-      font-size: 20px;
-      padding: 15px 30px;
-      border: 0.1px solid;
-      border-color: #ffc999;
-      text-decoration: none;
-      background-color: transparent;
-    }
-    
-    .btnFormPrenotazione:hover{
-      background-image: linear-gradient(to bottom, #ffc999, #ffebdb);
-      color: #f58625;
-    }
+.contFormPrenotazione {
+  align-items: center;
+  justify-content: center;
+}
+.formPrenotazione {
+  background-color: #122029;
+  color: aliceblue;
+}
+.formPrenotazione {
+  align-items: center;
+}
 
-    .labelForm{
-      width: 30vh;
-      color: white;
+.contCardPrenotazioni {
+  width: 201vh;
+}
+
+.contTitoloPrenotazioni {
+  width: 201vh;
+}
+
+.mapsCOnt {
+  width: 202vh;
+}
+
+.contTotPrenotazioni {
+  background-color: #122029;
+}
+
+.btnFormPrenotazione {
+  color: #ffc999;
+  font-size: 20px;
+  padding: 15px 30px;
+  border: 0.1px solid;
+  border-color: #ffc999;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.btnFormPrenotazione:hover {
+  background-image: linear-gradient(to bottom, #ffc999, #ffebdb);
+  color: #f58625;
+}
+
+.labelForm {
+  width: 30vh;
+  color: white;
+}
+
+#datelabel {
+  width: 30vh;
+  color: aliceblue;
+}
+
+.h1TitoloPrenotazione {
+  font-size: 5vh;
+  color: #ffc999;
+  font-weight: bold;
+}
+
+.pTitoloPrenotazione {
+  font-size: 2vh;
+  color: #ffc999;
+}
+
+.react-datepicker-wrapper {
+  .react-datepicker__input-container {
+    input {
+      background: transparent;
     }
+  }
+}
 
-    #datelabel{
-      width: 30vh;
-      color: aliceblue;
-    }
+.border12 {
+  display: grid;
+}
 
-    .h1TitoloPrenotazione{
-      font-size: 5vh;
-      color: #ffc999;
-      font-weight: bold;
-    }
+/* IMG E MAPS */
 
-    .pTitoloPrenotazione{
-      font-size: 2vh;
-      color: #ffc999;
-    }
+@media screen and (min-width: 1743px) {
 
-    .react-datepicker-wrapper {
-      .react-datepicker__input-container {
-        input  {
-          background: transparent;
-        }
-      }
-    }
+  .divImg .maps {
+    border: 2px solid red;
+    width: 117.5rem;
+  }
 
-    .border12{
-      display: grid;
-    }
+  .imgPrenotazione .maps {
+    width: 117.5rem;
+  }
+}
 
+@media screen and (max-width: 1740px) {
+  .maps {
+    width: 202.9vh;
+  }
+}
 
-    
+/* @media screen and (min-width: 1740px){
+  .maps {
+    width: 219vh;
+  }
+  .imgPrenotazione{
+    width: 219vh;
+  }
+} */
+
+@media screen and(min-width:960px) {
+
+  .contCardPrenotazioni{
+    border: 2px solid red;
+  }
+  
+}
+

@@ -67,7 +67,7 @@ const Prenotazione = () => {
 
   return (
     <div className="contTotPrenotazioni">
-      <div>
+      <div className=" divImg"> 
         <img
           src="../../../src/assets/Images/Prenotazione.jpg"
           alt=""
@@ -331,6 +331,7 @@ const Prenotazione = () => {
           height="650"
           src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Viale%20Fratelli%20Cairoli,%20181%20,%20Treviso%20-%2031100+(Restaurant%20&amp;%20Lounge)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           allowFullScreen
+          className="maps"
         ></iframe>
       </div>
     </div>
