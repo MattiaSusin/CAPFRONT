@@ -50,11 +50,11 @@ const Contatti = () => {
   };
 
   return (
-    <div className="contFormContatti">
+    <div className="contFormContattiTot">
       {/* IMG INIZIALE */}
       <div className="contImgContatti">
         <img
-          src="../../../src/assets/Images/Prenotazione.jpg"
+          src="../../../../src/assets/Images/Piatti/Cellulare-a-tavola-al-ristorante.webp"
           alt=""
           className="imgContatti"
         />
@@ -65,6 +65,8 @@ const Contatti = () => {
         {" "}
         {/* ------------------------------------------ CONTENITORE 1 ----------------------------------------------- */}
         <div  className="contContactContatti">
+          <div className='contMobile'>
+
           <Col className='contenitoreSxContatti' md={6}>
 
           <div className="d-flex mb-5">
@@ -102,7 +104,7 @@ const Contatti = () => {
 
           {/*-------------------------------------------------- CONTENITORE 2-------------------------------------- */}
 
-          <div className="d-flex mb-5">
+          <div className="d-flex mb-5 contCard">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +174,10 @@ const Contatti = () => {
             </Card>
           </div>
           </Col>
+          </div>
           
+          <div className='contMobile2'>
+
               <Col md={6} className=" contFormContatti">
                 <Card className="cardContattiForm border-0">
                   <Card.Body className="cardContatti">
@@ -255,6 +260,7 @@ const Contatti = () => {
                   </Card.Body>
                 </Card>
               </Col>
+          </div>
           
 
 
@@ -265,7 +271,7 @@ const Contatti = () => {
       </div>
 
       {/*MAPS LOCALE*/}
-      <div className="mapsContatti">
+      {/* <div className="mapsContatti mt-5">
         <iframe
           title="Google Map"
           width="100%"
@@ -273,7 +279,7 @@ const Contatti = () => {
           src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Viale%20Fratelli%20Cairoli,%20181%20,%20Treviso%20-%2031100+(Restaurant%20&amp;%20Lounge)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           allowFullScreen
         ></iframe>
-      </div>
+      </div> */}
     </div>
   );
 };

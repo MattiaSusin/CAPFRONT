@@ -15,17 +15,15 @@
 }
 
 .contContactContatti{
-    /* border: 2px solid red; */
-    height: 55vh;
-    width: 100%;
+    margin-top: 8vh;
+    height: 70vh;
+    width: 190vh;
     display: flex;
     justify-content: space-around;
 }
 .contFormContatti{
     width: 50vh;
     justify-content: center;
-    margin: 0px;
-    padding: 0px;
 }
 
 .cardContattiForm{
@@ -34,6 +32,7 @@
     color: aliceblue;
 
 }
+
 .cardTitle{
     font-family: sans-serif;
     font-size: 3vh;
@@ -60,7 +59,6 @@
 
 .FormNomeCognome{
     border-radius: 10px;
-    border: 2px solid;
 }
 
 
@@ -126,6 +124,10 @@ border: none;
     width: 100%;
 }
 
+.cont1FormContatti {
+    
+}
+
 .imgContatti{
     width: 202.8vh;
     height: 80vh;
@@ -133,10 +135,79 @@ border: none;
 }
 
 .contenitoreSxContatti{
-    border: 2px solid red;
-    height: 100vh;
-    margin-bottom: 5vh;
+    
+    height: 70vh;
+    width: 70vh;
 }
+
 
 /*!!!!!!!!!!!!!! MOBILE !!!!!!!!!!!!!!*/
 
+@media screen and (max-width:760px){
+
+    .contContactContatti{
+        display: block;
+    }
+
+    .contenitoreSxContatti{
+        width: 70vh;
+        height: 70vh;
+        
+    }
+
+    .contMobile{
+        display: flex;
+        justify-content: center;
+        
+        width: 202vh;
+        
+    }
+    .contMobile2{
+        display: flex;
+        justify-content: center;
+        ;
+        width: 202vh;
+        padding-right: 20vh;
+        
+    }
+
+    .contContactContatti{
+        height: 150vh;
+        margin-top: 80vh;
+    }
+
+    .contFormContattiTot{
+        
+        height: 250vh;
+        width: 197vh;
+    }
+    .cardContatti{
+        width: 70vh;
+        padding-right: 5vh;
+    }
+
+    .contContactContatti{
+        width:70vh ;
+        margin-bottom: 10vh;
+    }
+    .contMobile2{
+        margin-top: 8vh;
+        padding-right: 0vh;
+        width: 50vh;
+    }
+    .contMobile{
+        width: 70vh;
+        margin-top: 15vh;
+    }
+    
+    .contFormContattiTot{
+        height: 270vh;
+    }
+    
+    .contCard{
+        width: 70vh;
+    }
+}
+
+@media screen and (max-width:760px){
+}
