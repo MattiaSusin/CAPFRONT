@@ -7,10 +7,15 @@ import {
   Form,
   FormControl,
   FormGroup,
-  FormLabel
+  FormLabel,
+  Spinner,
+  Toast,
+  ToastContainer
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
+import useCreateContatto from '../../../hooks/useCreateContatto';
+
 const Contatti = () => {
   const [formData, setFormData] = useState({
     nome: "",
@@ -18,6 +23,13 @@ const Contatti = () => {
     email: "",
     messaggio: "",
   });
+
+  const {
+    createContatto,
+    loading: createContattoLoading,
+    error: createContattoError,
+    response: createContattoResponse,
+  } = useCreateContatto();
 
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
@@ -36,18 +48,48 @@ const Contatti = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const validateErrors = validate();
-    if (Object.keys(validateErrors).length === 0) {
-      console.log("form submitted", formData);
-      window.location.href = "/";
-      setSuccess(true);
+    console.log("Form submitted");
+    
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length === 0) {
+      try {
+        const formattedData = {
+          nome: formData.nome,
+          cognome: formData.cognome,
+          email: formData.email,
+          messaggio: formData.messaggio
+        };
+        
+        console.log("Invio dati:", formattedData);
+        await createContatto(formattedData);
+        
+        console.log("Invio riuscito");
+        setSuccess(true);
+        setShowToast(true);
+        setFormData({
+          nome: "",
+          cognome: "",
+          email: "",
+          messaggio: "",
+        });
+      } catch (error) {
+        console.error("Errore:", error);
+        setShowErrorToast(true);
+      }
     } else {
-      setErrors(validateErrors);
-      setSuccess(false);
+      setErrors(validationErrors);
+      setShowErrorToast(true);
     }
-  };
+};
+
+  const [showToast, setShowToast] = useState(false);
+
+  if (createContattoLoading) return <Spinner animation="border" />;
+  if (createContattoError)
+    return <Alert variant="danger">{createContattoError}</Alert>;
 
   return (
     <div className="contFormContattiTot">
@@ -182,17 +224,26 @@ const Contatti = () => {
                 <Card className="cardContattiForm border-0">
                   <Card.Body className="cardContatti">
                     <Card.Title className="justify-content-center d-flex mb-5 cardTitle">CONTATTACI</Card.Title>
-                    {success && (
-                      <>
-                        <Alert variant={"success"}>
-                          Form submitted successfully
-                        </Alert>
-                        <p>
-                          Riceverai una risposta quanto prima dal nostro staff
-                        </p>
-                      </>
-                    )}
-                    <Form onSubmit={handleSubmit}>
+                    {success && createContattoResponse && (
+                  <ToastContainer position="top-end" className="p-3">
+                  <Toast 
+                    onClose={() => setShowToast(false)} 
+                    show={showToast} 
+                    delay={3000} 
+                    autohide
+                    style={{ backgroundColor: '#0e517a' }}
+                  >
+                    <Toast.Header>
+                      <strong className="me-auto">GRAZIE PER AVERCI CONTATTATO</strong>
+                    </Toast.Header>
+                    <Toast.Body className="text-white bodyToast">
+                    Ricevererai una risposta quanto prima
+                    </Toast.Body>
+                  </Toast>
+                </ToastContainer>
+                
+                )}
+                    <Form onSubmit={handleSubmit} noValidate>
                       <FormGroup className="mb-4">
                         <FormLabel className="labelForm">Nome*</FormLabel>
                         <FormControl
@@ -251,7 +302,7 @@ const Contatti = () => {
                         </FormControl.Feedback>
                       </FormGroup>
                       <div className=" justify-content-center d-flex align-items-center">
-                      <Button type="submit" className="mt-3 btnFormPrenotazione ">
+                      <Button type="submit" className="mt-3 btnFormPrenotazione  " onClick={(e) => e.preventDefault()}>
                         INVIA
                       </Button>
 
@@ -271,7 +322,7 @@ const Contatti = () => {
       </div>
 
       {/*MAPS LOCALE*/}
-      {/* <div className="mapsContatti mt-5">
+      <div className="mapsContatti mt-5">
         <iframe
           title="Google Map"
           width="100%"
@@ -279,7 +330,7 @@ const Contatti = () => {
           src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Viale%20Fratelli%20Cairoli,%20181%20,%20Treviso%20-%2031100+(Restaurant%20&amp;%20Lounge)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
           allowFullScreen
         ></iframe>
-      </div> */}
+      </div>
     </div>
   );
 };
